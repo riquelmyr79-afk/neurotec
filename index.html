@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurotec - Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header-pilula-wrapper">
+        <div class="header-pilula">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo/foto 1.png" alt="Logo Neurotec"></a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="header-compensacao-pilula"></div>
+
+    <section id="produtos" class="carrossel-container">
+        <div class="container relative carrossel-wrapper">
+
+            <button class="seta anterior" onclick="mudarSlide(-1)">‹</button>
+            <button class="seta proximo" onclick="mudarSlide(1)">›</button>
+
+            <div class="carrossel-track">
+                
+                <div class="slide">
+                    <div class="grade-produto">
+                        <div class="imagem-equipamento">
+                            <a href="pages/produto-1.html"><img src="assets/images/produtos/foto 2.png" alt="Produto 1"></a>
+                        </div>
+                        <div class="info-equipamento">
+                            <span class="categoria-destaque">DESTAQUE</span>
+                            <h1>Produto Principal</h1>
+                            <p class="descricao-curta">Descrição breve do seu primeiro equipamento de alta tecnologia.</p>
+                            <a href="pages/produto-1.html" class="btn-azul">Mais informações</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="grade-produto">
+                        <div class="imagem-equipamento">
+                            <a href="pages/produto-2.html"><img src="assets/images/produtos/foto 3.png" alt="Produto 2"></a>
+                        </div>
+                        <div class="info-equipamento">
+                            <span class="categoria-destaque">LANÇAMENTO</span>
+                            <h1>Segundo Equipamento</h1>
+                            <p class="descricao-curta">Descrição breve do seu segundo produto.</p>
+                            <a href="pages/produto-2.html" class="btn-azul">Mais informações</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="grade-produto">
+                        <div class="imagem-equipamento">
+                            <a href="pages/produto-3.html"><img src="assets/images/produtos/foto 4.png" alt="Produto 3"></a>
+                        </div>
+                        <div class="info-equipamento">
+                            <span class="categoria-destaque">ACESSÓRIO</span>
+                            <h1>Terceiro Produto</h1>
+                            <p class="descricao-curta">Descrição breve do seu terceiro equipamento ou acessório.</p>
+                            <a href="pages/produto-3.html" class="btn-azul">Mais informações</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="indicadores-carrossel">
+                <span class="ponto ativo" onclick="irParaSlide(0)"></span>
+                <span class="ponto" onclick="irParaSlide(1)"></span>
+                <span class="ponto" onclick="irParaSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="downloads" class="secao-downloads-home">
+        <div class="container">
+            <div class="titulo-downloads-home">
+                <h2>Downloads</h2>
+            </div>
+
+            <div class="grid-downloads-home">
+                <div class="coluna-imagens-downloads">
+                    <div class="item-download-visual">
+                        <img src="assets/images/downloads/foto 5.png" alt="Manual Técnico">
+                    </div>
+                    <div class="item-download-visual">
+                        <img src="assets/images/downloads/foto 6.png" alt="Software de Aquisição">
+                    </div>
+                    <div class="item-download-visual">
+                        <img src="assets/images/downloads/foto 7.png" alt="Team Viewer">
+                    </div>
+                </div>
+
+                <div class="coluna-downloads-items">
+                    <div class="item-download-home">
+                        <h3>Guia Rápido de Instalação</h3>
+                        <p>Além do manual, consulte também o nosso Guia Rápido de Instalação. Clique no link abaixo para efetuar o download.</p>
+                        <a href="#" class="btn-download-home">Fazer Download</a>
+                    </div>
+
+                    <div class="item-download-home">
+                        <h3>Team Viewer</h3>
+                        <p>O TeamViewer permite que o suporte seja feito de forma rápida e eficiente, levando nosso técnico até você, em poucos segundos.</p>
+                        <p>Você pode baixar o software, clicando no link abaixo.</p>
+                        <a href="#" class="btn-download-home">Fazer Download</a>
+                    </div>
+
+                    <div class="item-download-home">
+                        <h3>Software de Aquisição de Dados</h3>
+                        <p>Aplicativo principal para captura e análise de sinais EEG em tempo real. Versão completa com todas as funcionalidades.</p>
+                        <a href="#" class="btn-download-home">Fazer Download</a>
+                    </div>
+
+                    <div class="botao-ver-todos-downloads">
+                        <a href="downloads.html" class="btn-ver-todos-downloads">Ver Todos os Downloads →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/script.js"></script>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape-neurotec">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <!-- LOGO À ESQUERDA -->
+                <div class="coluna-logo-rodape">
+                    <div class="logo-rodape">
+                        <img src="assets/images/logo/foto 1.png" alt="Logo Neurotec">
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES À DIREITA -->
+                <div class="coluna-info-rodape">
+                    <div class="info-rodape-item">
+                        <p class="copyright">Copyright © 2026 NEUROTEC<span class="registro-rodape">®</span></p>
+                    </div>
+
+                    <div class="info-rodape-item">
+                        <p>R. Cordilheira dos Andes, 200 - Distrito Industrial, Itajubá - MG, Brasil, CEP: 37504-109</p>
+                    </div>
+
+                    <div class="info-rodape-item">
+                        <p><strong>Telefone:</strong> +55 (35) 3623-2500</p>
+                    </div>
+
+                    <div class="info-rodape-item">
+                        <p><strong>Email:</strong> neurotec@neurotec.com.br</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="linha-divisoria-rodape"></div>
+
+            <div class="rodape-bottom">
+                <p>Desenvolvido com <span class="coracao">❤</span> para melhorar a saúde neurológica</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1200 @@
+:root {
+    --azul-neurotec: #1565C0;
+    --vermelho-neurotec: #D32F2F;
+    --cinza-texto: #333333;
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cinza-texto);
+    background-color: #FFFFFF;
+    line-height: 1.6;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.relative { 
+    position: relative; 
+}
+
+.btn-azul, .btn-vermelho {
+    display: inline-block; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 13px;
+    text-transform: uppercase; 
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-azul { 
+    background-color: var(--azul-neurotec); 
+    color: white; 
+}
+
+.btn-azul:hover { 
+    background-color: #0D47A1; 
+    transform: translateY(-2px); 
+}
+
+.btn-vermelho { 
+    background-color: var(--vermelho-neurotec); 
+    color: white; 
+}
+
+.btn-vermelho:hover { 
+    background-color: #B71C1C; 
+    transform: translateY(-2px); 
+}
+
+/* ==========================================
+   CABEÇALHO "PÍLULA" FLUTUANTE
+========================================== */
+.header-pilula-wrapper {
+    position: fixed;
+    top: 15px;
+    width: 100%;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    left: 0;
+    padding: 0 15px;
+}
+
+.header-pilula {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    pointer-events: auto;
+}
+
+.header-pilula .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-pilula .logo a {
+    display: flex;
+}
+
+.header-pilula .logo img {
+    height: 30px;
+    width: auto;
+}
+
+.header-pilula .menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-pilula .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+.header-pilula .menu li {
+    list-style: none;
+}
+
+.header-pilula .menu a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.header-pilula .menu a:hover {
+    color: var(--azul-neurotec);
+}
+
+.header-compensacao-pilula {
+    height: 75px;
+}
+
+/* ==========================================
+   CARROSSEL DE PRODUTOS
+========================================== */
+.carrossel-container {
+    background: linear-gradient(180deg, #E3F2FD 0%, #E3F2FD 85%, #FFFFFF 100%);
+    padding: 40px 0 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.carrossel-wrapper { 
+    position: relative;
+    overflow: hidden;
+}
+
+.carrossel-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    width: 300%;
+    transform: translateX(0);
+}
+
+.slide { 
+    flex: 0 0 calc(100% / 3); 
+    width: calc(100% / 3);
+}
+
+.grade-produto {
+    display: flex; 
+    align-items: center; 
+    gap: 60px; 
+    padding: 30px;
+}
+
+.imagem-equipamento { 
+    flex: 1; 
+    text-align: center; 
+}
+
+.imagem-equipamento a {
+    display: block;
+    text-decoration: none;
+}
+
+.imagem-equipamento img { 
+    max-width: 100%; 
+    max-height: 380px; 
+    filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.15));
+    transition: transform 0.3s ease;
+}
+
+.imagem-equipamento a:hover img {
+    transform: scale(1.05);
+}
+
+.info-equipamento { 
+    flex: 1; 
+}
+
+.categoria-destaque { 
+    color: var(--azul-neurotec); 
+    font-size: 11px; 
+    font-weight: 700; 
+    letter-spacing: 1.5px; 
+    display: block; 
+    margin-bottom: 10px; 
+}
+
+.info-equipamento h1 { 
+    font-size: 44px; 
+    font-weight: 700; 
+    line-height: 1.1; 
+    color: #1A1A1A; 
+    margin-bottom: 15px; 
+}
+
+.descricao-curta { 
+    font-size: 15px; 
+    color: #666; 
+    margin-bottom: 25px; 
+    max-width: 450px; 
+}
+
+/* Setas do carrossel */
+/* Setas do carrossel - MELHORADAS */
+.seta {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 50px; 
+    height: 50px; 
+    background: linear-gradient(135deg, rgba(21, 101, 192, 0.9) 0%, rgba(13, 71, 161, 0.9) 100%);
+    border: none;
+    border-radius: 50%; 
+    cursor: pointer;
+    z-index: 100;
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(21, 101, 192, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.seta:hover { 
+    background: linear-gradient(135deg, var(--azul-neurotec) 0%, #0D47A1 100%);
+    color: white;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 30px rgba(21, 101, 192, 0.5);
+}
+
+.seta:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.seta.anterior { 
+    left: 20px; 
+}
+
+.seta.proximo { 
+    right: 20px; 
+}
+
+/* Responsividade das setas */
+@media (max-width: 768px) {
+    .seta {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .seta.anterior { 
+        left: 15px; 
+    }
+
+    .seta.proximo { 
+        right: 15px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .seta {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .seta.anterior { 
+        left: 10px; 
+    }
+
+    .seta.proximo { 
+        right: 10px; 
+    }
+}
+
+/* Indicadores */
+.indicadores-carrossel { 
+    text-align: center; 
+    margin-top: 35px; 
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ponto { 
+    cursor: pointer; 
+    height: 10px; 
+    width: 10px; 
+    background-color: #D0D0D0; 
+    border-radius: 50%; 
+    display: inline-block; 
+    transition: all 0.3s ease; 
+}
+
+.ponto.ativo { 
+    background-color: var(--azul-neurotec);
+    width: 28px;
+    border-radius: 5px;
+}
+
+.ponto:hover { 
+    background-color: #B0B0B0;
+}
+
+/* ==========================================
+   SEÇÃO DE DOWNLOADS
+========================================== */
+.secao-downloads-home {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F5 100%);
+}
+
+.titulo-downloads-home {
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+.titulo-downloads-home h2 {
+    font-size: 48px;
+    font-weight: 300;
+    color: #CCCCCC;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.grid-downloads-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.coluna-imagens-downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.item-download-visual {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 20px;
+}
+
+.item-download-visual img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.coluna-downloads-items {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.item-download-home {
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.item-download-home:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-4px);
+}
+
+.item-download-home h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.item-download-home p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0 0 12px 0;
+}
+
+.item-download-home p:last-of-type {
+    margin-bottom: 20px;
+}
+
+.btn-download-home {
+    display: inline-block;
+    padding: 10px 24px;
+    background: white;
+    color: var(--azul-neurotec);
+    border: 2px solid var(--azul-neurotec);
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-download-home:hover {
+    background: var(--azul-neurotec);
+    color: white;
+}
+
+.botao-ver-todos-downloads {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #EEE;
+}
+
+.btn-ver-todos-downloads {
+    display: inline-block;
+    color: var(--azul-neurotec);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-ver-todos-downloads:hover {
+    color: var(--vermelho-neurotec);
+}
+
+/* ==========================================
+   PÁGINA PRODUTOS
+========================================== */
+.secao-produtos-pagina {
+    padding: 60px 0;
+    min-height: calc(100vh - 200px);
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.breadcrumb a {
+    color: var(--azul-neurotec);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: var(--vermelho-neurotec);
+}
+
+.titulo-secao-produtos {
+    margin-bottom: 50px;
+}
+
+.titulo-secao-produtos h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 15px;
+}
+
+.titulo-secao-produtos p {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card-produto {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-produto:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.imagem-produto {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.imagem-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-produto:hover .imagem-produto img {
+    transform: scale(1.08);
+}
+
+.info-produto {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-produto .categoria {
+    font-size: 11px;
+    color: var(--azul-neurotec);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.info-produto h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 12px;
+}
+
+.info-produto p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.btn-saiba-mais {
+    color: var(--azul-neurotec);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.card-produto:hover .btn-saiba-mais {
+    color: var(--vermelho-neurotec);
+}
+
+/* ==========================================
+   PÁGINA DETALHE PRODUTO
+========================================== */
+.secao-detalhe-produto {
+    padding: 60px 0;
+    min-height: calc(100vh - 200px);
+}
+
+.produto-detalhe {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+    align-items: start;
+}
+
+.imagem-detalhe {
+    text-align: center;
+}
+
+.imagem-detalhe img {
+    max-width: 100%;
+    max-height: 500px;
+    filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.15));
+}
+
+.info-detalhe {
+    padding: 40px;
+    background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--azul-neurotec);
+}
+
+.categoria-detalhe {
+    color: var(--azul-neurotec);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.info-detalhe h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.descricao-completa {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.especificacoes {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.especificacoes h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 15px;
+}
+
+.especificacoes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.especificacoes li {
+    font-size: 14px;
+    color: #666;
+    padding: 10px 0;
+    border-bottom: 1px solid #EEE;
+    line-height: 1.6;
+}
+
+.especificacoes li:last-child {
+    border-bottom: none;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 15px;
+}
+
+.botoes-acao button {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   PÁGINA SOBRE - NOVA ESTRUTURA
+========================================== */
+.secao-sobre {
+    padding: 60px 0;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+}
+
+.secao-sobre .breadcrumb {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 40px;
+}
+
+.secao-sobre .breadcrumb a {
+    color: var(--azul-neurotec);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.secao-sobre .breadcrumb a:hover {
+    color: var(--vermelho-neurotec);
+}
+
+/* SEÇÃO 1: SEDE + TEXTO NEUROTEC (UM EMBAIXO DO OUTRO) */
+.secao-1-sede-neurotec {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.foto-sede-container {
+    width: 100%;
+    height: 400px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.foto-sede {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bloco-texto-neurotec {
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.bloco-texto-neurotec h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 25px;
+}
+
+.registro {
+    font-size: 16px;
+    color: var(--vermelho-neurotec);
+    vertical-align: super;
+    margin: 0 3px;
+}
+
+.bloco-texto-neurotec p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.bloco-texto-neurotec p:last-child {
+    margin-bottom: 0;
+}
+
+/* DIVISOR */
+.divisor-secoes {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 60px 0;
+}
+
+.divisor-secoes::before {
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--azul-neurotec) 50%, transparent 100%);
+}
+
+/* SEÇÃO 2: HISTÓRIA (ESQUERDA) + FUNDADOR (DIREITA) */
+.secao-2-historia-fundador {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: flex-start;
+}
+
+.coluna-texto-historia {
+    grid-column: 1;
+}
+
+.coluna-texto-historia h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 25px;
+}
+
+.coluna-texto-historia p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.coluna-texto-historia p:last-child {
+    margin-bottom: 0;
+}
+
+.coluna-foto-fundador {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.foto-fundador-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    max-width: 280px;
+    width: 100%;
+}
+
+.foto-fundador {
+    width: 240px;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.info-fundador {
+    width: 100%;
+}
+
+.info-fundador h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+}
+
+.info-fundador p {
+    font-size: 12px;
+    color: var(--azul-neurotec);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+/* ...existing code... */
+
+/* SEÇÃO 3: VALORES */
+.secao-valores-sobre {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.valor-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--azul-neurotec);
+}
+
+.valor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.valor-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 15px;
+}
+
+.valor-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666;
+    margin: 0;
+}
+
+.lista-valores {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-valores li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.lista-valores li:last-child {
+    margin-bottom: 0;
+}
+
+/* SEÇÃO 4: CONTATO */
+.secao-contato-sobre {
+    background: linear-gradient(135deg, var(--azul-neurotec) 0%, #0D47A1 100%);
+    padding: 60px 50px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.secao-contato-sobre h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.info-contato {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.contato-item {
+    text-align: center;
+}
+
+.contato-item strong {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.contato-item p {
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+@media (max-width: 968px) {
+    .grid-downloads-home {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .grid-produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .secao-2-historia-fundador {
+        grid-template-columns: 1fr;
+    }
+
+    .secao-valores-sobre {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-contato {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-downloads-home h2 {
+        font-size: 32px;
+    }
+
+    .grid-downloads-home {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-produtos {
+        grid-template-columns: 1fr;
+    }
+
+    .foto-sede-container {
+        height: 250px;
+    }
+
+    .bloco-texto-neurotec {
+        padding: 25px;
+    }
+
+    .bloco-texto-neurotec h2 {
+        font-size: 24px;
+    }
+
+    .coluna-texto-historia h2 {
+        font-size: 24px;
+    }
+
+    .foto-fundador {
+        width: 200px;
+        height: 260px;
+    }
+
+    .secao-valores-sobre {
+        grid-template-columns: 1fr;
+    }
+
+    .secao-contato-sobre {
+        padding: 40px 20px;
+    }
+
+    .info-contato {
+        grid-template-columns: 1fr;
+    }
+}
+/* ...existing code... */
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+.rodape-neurotec {
+    background: linear-gradient(135deg, var(--azul-neurotec) 0%, #0D47A1 100%);
+    color: white;
+    padding: 60px 0 30px 0;
+    margin-top: 100px;
+}
+
+.conteudo-rodape {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* COLUNA LOGO */
+.coluna-logo-rodape {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.logo-rodape {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.logo-rodape:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.logo-rodape img {
+    height: 50px;
+    width: auto;
+    filter: brightness(1.2);
+}
+
+/* COLUNA INFORMAÇÕES */
+.coluna-info-rodape {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-rodape-item {
+    margin: 0;
+}
+
+.info-rodape-item p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.95);
+    transition: color 0.3s ease;
+}
+
+.info-rodape-item p:hover {
+    color: #FFFFFF;
+}
+
+.copyright {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 5px !important;
+}
+
+.registro-rodape {
+    font-size: 12px;
+    vertical-align: super;
+    margin-left: 3px;
+}
+
+.info-rodape-item strong {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* LINHA DIVISÓRIA */
+.linha-divisoria-rodape {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+}
+
+/* RODAPÉ BOTTOM */
+.rodape-bottom {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.rodape-bottom p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.coracao {
+    color: var(--vermelho-neurotec);
+    margin: 0 4px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE RODAPÉ
+========================================== */
+@media (max-width: 268px) {
+    .conteudo-rodape {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .coluna-logo-rodape {
+        justify-content: center;
+    }
+
+    .coluna-info-rodape {
+        text-align: center;
+    }
+
+    .info-rodape-item p {
+        font-size: 13px;
+    }
+
+    .copyright {
+        font-size: 15px;
+    }
+
+    .rodape-neurotec {
+        padding: 40px 0 20px 0;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .conteudo-rodape {
+        gap: 25px;
+    }
+
+    .info-rodape-item p {
+        font-size: 12px;
+    }
+
+    .copyright {
+        font-size: 14px;
+    }
+
+    .logo-rodape img {
+        height: 40px;
+    }
+}
