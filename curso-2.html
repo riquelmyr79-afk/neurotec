@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>II Curso Técnico-prático de EEG - Neurotec</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #fcfcfc; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header-pilula-wrapper { width: 100%; padding: 20px 0; background-color: #fcfcfc; }
+        .header-pilula { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 10px 30px; background-color: #ffffff; border-radius: 50px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); }
+        .logo img { height: 40px; display: block; }
+        .menu ul { list-style: none; display: flex; gap: 30px; }
+        .menu a { text-decoration: none; color: #4a4a4a; font-weight: 500; }
+        .menu a:hover { color: #0056b3; }
+        .curso-hero { background-color: #002244; color: #fff; padding: 80px 0; text-align: center; }
+        .curso-tag { display: inline-block; background-color: #e25555; color: #fff; font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 20px; }
+        .curso-hero h1 { font-size: 40px; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .curso-hero p { font-size: 18px; color: #cbd5e1; max-width: 600px; margin: 0 auto; }
+        .curso-detalhes { padding: 60px 0 100px 0; }
+        .curso-layout { display: flex; gap: 50px; align-items: flex-start; }
+        .curso-conteudo { flex: 2; }
+        .curso-imagem-principal { width: 100%; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); object-fit: cover; }
+        .curso-conteudo h2 { font-size: 28px; color: #1a1a1a; margin-bottom: 20px; }
+        .curso-conteudo h3 { font-size: 22px; color: #1a1a1a; margin: 30px 0 15px 0; }
+        .curso-conteudo p { color: #555; font-size: 16px; margin-bottom: 15px; line-height: 1.8; text-align: justify; }
+        .curso-lista { list-style-position: inside; color: #555; margin-bottom: 20px; }
+        .curso-lista li { margin-bottom: 10px; }
+        .curso-sidebar { flex: 1; position: sticky; top: 20px; }
+        .curso-card-inscricao { background-color: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid #0056b3; }
+        .curso-card-inscricao h3 { font-size: 20px; margin-bottom: 20px; color: #1a1a1a; }
+        .info-item { margin-bottom: 15px; display: flex; flex-direction: column; }
+        .info-item strong { color: #1a1a1a; font-size: 14px; }
+        .info-item span { color: #666; font-size: 15px; }
+        .divisor-card { height: 1px; background-color: #eee; margin: 20px 0; }
+        .btn-inscreva-se { display: block; background-color: #0056b3; color: #fff; text-align: center; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s; margin-bottom: 15px; }
+        .btn-inscreva-se:hover { background-color: #004494; }
+        .nota-card { font-size: 12px; color: #888; text-align: center; margin: 0; }
+        .rodape-neurotec { background-color: #1a1a1a; color: #fff; padding: 50px 0 20px 0; margin-top: 60px; }
+        .conteudo-rodape { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .coluna-info-rodape { display: flex; gap: 30px; flex-wrap: wrap; }
+        .info-rodape-item p { font-size: 13px; color: #b3b3b3; }
+        .linha-divisoria-rodape { height: 1px; background-color: #333; margin: 20px 0; }
+        .rodape-bottom { text-align: center; font-size: 13px; color: #888; }
+        .coracao { color: #e25555; }
+        @media (max-width: 900px) { .curso-layout { flex-direction: column; } .conteudo-rodape { flex-direction: column; text-align: center; gap: 30px; } }
+    </style>
+</head>
+<body>
+
+    <header class="header-pilula-wrapper">
+        <div class="header-pilula">
+            <div class="logo"><a href="index.html"><img src="foto 1.png" alt="Logo Neurotec"></a></div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="curso-hero">
+        <div class="container">
+            <span class="curso-tag">CURSO PRESENCIAL</span>
+            <h1>II Curso técnico-prático de Eletroencefalograma</h1>
+            <p>Mais uma edição do nosso treinamento intensivo para profissionais da área neurológica.</p>
+        </div>
+    </section>
+
+    <section class="curso-detalhes">
+        <div class="container">
+            <div class="curso-layout">
+                <div class="curso-conteudo">
+                    <img src="foto 6.png" alt="Foto do II Curso" class="curso-imagem-principal">
+                    <h2>Sobre o Evento</h2>
+                    <p>Devido ao grande sucesso da primeira edição, o II Curso Técnico-prático retorna com atualizações nas metodologias de exame e novas práticas em equipamentos. Este módulo é essencial para quem busca excelência na execução de Eletroencefalogramas.</p>
+                    <p>Os alunos terão contato direto com a tecnologia NEUROMAP, aprendendo a otimizar o tempo de exame e garantir a precisão máxima na captação dos sinais neurológicos.</p>
+                    
+                    <h3>Destaques do conteúdo:</h3>
+                    <ul class="curso-lista">
+                        <li>Revisão de montagens e protocolos padrão</li>
+                        <li>Dicas avançadas para redução de impedância</li>
+                        <li>Análise de casos práticos e resolução de ruídos</li>
+                    </ul>
+                </div>
+
+                <div class="curso-sidebar">
+                    <div class="curso-card-inscricao">
+                        <h3>Informações</h3>
+                        <div class="info-item"><strong>Data:</strong><span>A definir</span></div>
+                        <div class="info-item"><strong>Local:</strong><span>Sede Neurotec - Itajubá, MG</span></div>
+                        <div class="info-item"><strong>Público:</strong><span>Profissionais da saúde</span></div>
+                        <div class="divisor-card"></div>
+                        <a href="sobre.html" class="btn-inscreva-se">Garantir minha vaga</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<style>
+    /* NOVO RODAPÉ AZUL REFINADO (C/ LOGO) */
+    .footer-premium {
+        background-color: #001a33; /* Azul meio escuro sóbrio (Steel Blue) */
+        color: #ffffff;
+        padding: 80px 0 30px;
+        border-radius: 60px 60px 0 0; /* Curva elegante no topo */
+        margin-top: 100px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+        color: #e1ecf7; /* Azul muito claro para contraste suave nos títulos */
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .footer-col h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(90deg, #007cf0, #00dfd8); /* Traço em gradiente tecnológico */
+    }
+
+    .footer-info p {
+        font-size: 14px;
+        color: #c9d5e1; /* Cor de texto suave e legível */
+        line-height: 1.8;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* ESTILO DO LOGO NO RODAPÉ */
+    .footer-logo img {
+        height: 40px; /* Tamanho proporcional */
+        margin-bottom: 25px;
+        display: block;
+        /* IMPORTANTE: Filtro para deixar o logo branco sobre fundo azul */
+        filter: brightness(0) invert(1); 
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #c9d5e1;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        padding-left: 5px; /* Efeito hover sutil */
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divisor sutil */
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: #8c9dad;
+    }
+
+    .coracao-footer {
+        color: #e25555;
+        animation: pulseFooter 1.5s infinite;
+        display: inline-block;
+    }
+
+    @keyframes pulseFooter {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    @media (max-width: 900px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+        .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+        .footer-info p { justify-content: center; text-align: center; }
+        .footer-logo img { margin: 0 auto 25px auto; } /* Centraliza o logo no mobile */
+        .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    }
+</style>
+
+<footer class="footer-premium">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="foto 1.png" alt="Neurotec">
+                </div>
+                <p style="color: #c9d5e1; font-size: 14px; margin-bottom: 20px;">
+                    Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia clínica, fornecendo soluções de alta precisão para diagnósticos confiáveis.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                    <li><a href="downloads.html">Central de Downloads</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <div class="footer-info">
+                    <p>📍 R. Cordilheira dos Andes, 200<br>Itajubá - MG, Brasil<br>CEP: 37504-109</p>
+                    <p>📞 +55 (35) 3623-2500</p>
+                    <p>✉️ neurotec@neurotec.com.br</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2026 <strong>NEUROTEC®</strong>. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span class="coracao-footer">❤</span> para a Neurofisiologia</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

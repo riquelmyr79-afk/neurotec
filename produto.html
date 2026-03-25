@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - Neurotec</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --tech-grad: linear-gradient(90deg, #007cf0, #00dfd8);
+            --hero-blue: #d1e3f8;
+            --dark-blue: #002244;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER FIXO PADRONIZADO (7 BOTÕES) */
+        .header-wrapper { 
+            position: fixed; 
+            top: 25px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: auto; 
+            z-index: 2000; 
+        }
+        .header-nav { 
+            background: rgba(255, 255, 255, 0.96); 
+            backdrop-filter: blur(12px); 
+            padding: 10px 35px; 
+            border-radius: 50px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(255,255,255,0.5);
+            white-space: nowrap;
+        }
+        .logo img { height: 35px; margin-right: 10px; }
+        .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: #444; font-weight: 500; font-size: 13px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
+
+        /* HERO - TEMA AZUL REFINADO */
+        .hero-produto {
+            background-color: var(--hero-blue);
+            padding: 180px 0 80px 0;
+            border-radius: 0 0 80px 80px;
+            text-align: center;
+        }
+        .hero-produto h1 { font-size: 52px; color: var(--dark-blue); font-weight: 700; }
+        .hero-produto h1 span { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* ESTRUTURA DO PRODUTO */
+        .secao-produto { padding: 80px 0; display: none; } 
+        .secao-produto.active { display: block; animation: fadeIn 0.6s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .layout-detalhe { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        
+        .coluna-foto { position: sticky; top: 120px; text-align: center; }
+        .foto-principal { max-width: 100%; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.06); background: white; padding: 50px; border: 1px solid #f0f0f0; }
+
+        .descricao-longa { font-size: 16px; color: #5a6f85; margin-bottom: 40px; text-align: justify; }
+
+        .bloco-info { margin-bottom: 40px; background: #fcfdfe; padding: 30px; border-radius: 20px; border: 1px solid #f0f4f8; }
+        .bloco-info h2 { font-size: 20px; color: var(--dark-blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
+        
+        .lista-checks { list-style: none; }
+        .lista-checks li { margin-bottom: 12px; display: flex; gap: 12px; align-items: center; font-weight: 500; color: #444; }
+        .lista-checks li::before { content: '✓'; color: var(--primary); font-weight: bold; font-size: 18px; }
+
+        .tabela-specs { width: 100%; border-collapse: collapse; }
+        .tabela-specs td { padding: 15px 0; border-bottom: 1px solid #eef2f6; font-size: 15px; }
+        .tabela-specs td:first-child { font-weight: 700; color: var(--dark-blue); width: 45%; }
+        .tabela-specs tr:last-child td { border-bottom: none; }
+
+        /* FOOTER */
+        footer { background: #1a1a1a; color: #fff; padding: 60px 0; border-radius: 60px 60px 0 0; text-align: center; margin-top: 100px; }
+
+        @media (max-width: 900px) {
+            .layout-detalhe { grid-template-columns: 1fr; gap: 40px; }
+            .coluna-foto { position: static; }
+            .hero-produto h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-wrapper">
+        <nav class="header-nav">
+            <div class="logo"><a href="index.html"><img src="foto 1.png" alt="Logo"></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html" style="color: var(--primary);">Produtos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="certificacoes.html">Institucional</a></li>
+                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-produto">
+        <div class="container">
+            <h1 id="hero-title">Neuromap <span>Séries</span></h1>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <section id="40i" class="secao-produto">
+            <div class="layout-detalhe">
+                <div class="coluna-foto"><img src="foto 2.png" class="foto-principal"></div>
+                <div class="coluna-texto">
+                    <h1>Neuromap® 40i</h1>
+                    <p class="descricao-longa">O Neuromap® 40i é um Eletroencefalógrafo de 26 a 54 canais que utiliza as mais modernas técnicas de processamento digital de sinais (DSP). Sua instalação é imediata, sem bateria. Os filtros são totalmente configuráveis e o sistema inclui medição de impedâncias por software. Trata-se de um sistema de padrão sólido, confiável, de alta performance e baixo consumo.</p>
+                    
+                    <div class="bloco-info">
+                        <h2>Realiza os seguintes exames:</h2>
+                        <ul class="lista-checks">
+                            <li>EEG Digital, Quantitativo e Topográfico</li>
+                            <li>Poligrafia Neonatal | Polissonografia</li>
+                            <li>Vídeo-EEG Digital | Vídeo-Polissonografia</li>
+                            <li>Monitoração com vídeo-EEG</li>
+                        </ul>
+                    </div>
+
+                    <div class="bloco-info">
+                        <h2>Especificações</h2>
+                        <table class="tabela-specs">
+                            <tr><td>Dimensões</td><td>16 x 14 x 6 cm</td></tr>
+                            <tr><td>Peso</td><td>450 g</td></tr>
+                            <tr><td>Canais</td><td>Até 50 canais de EEG, ECG e Sensores</td></tr>
+                            <tr><td>Canais DC</td><td>4 canais (Oxímetros, CPAPs)</td></tr>
+                            <tr><td>Conexão</td><td>USB Plug & Play</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="bloco-info">
+                        <h2>Acessórios Opcionais</h2>
+                        <p class="descricao-longa">Foto-Estimulador com LEDs (USB), Áudio-Estimulador, Sensores para Polissonografia e Módulo Isolador (Spliter).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="eqpe041" class="secao-produto">
+            <div class="layout-detalhe">
+                <div class="coluna-foto"><img src="foto 3.png" class="foto-principal"></div>
+                <div class="coluna-texto">
+                    <h1>Neuromap® EQPE041 Portátil</h1>
+                    <p class="descricao-longa">Equipamento de alta performance para Eletroneuromiografia e Potenciais Evocados. Possui quatro canais para estudo de Velocidade de Condução Motora e Sensitiva, Estimulação Repetitiva, Onda F, Reflexo H, Blink Reflex, Eletromiografia, Potenciais Evocados Somatossensitivo, Auditivo, Visual e P300.</p>
+                    
+                    <div class="bloco-info">
+                        <h2>Recursos de Análise:</h2>
+                        <ul class="lista-checks">
+                            <li>Exibição das curvas com medidas</li>
+                            <li>Relatório Tabular dos valores obtidos</li>
+                            <li>Relatório descritivo integrado ao Microsoft Word®</li>
+                            <li>Importação automática do Banco de Dados (Access®)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bloco-info">
+                        <h2>Especificações</h2>
+                        <table class="tabela-specs">
+                            <tr><td>Dimensões</td><td>19 × 17 × 7 cm</td></tr>
+                            <tr><td>Peso</td><td>680 g</td></tr>
+                            <tr><td>Isolação</td><td>Ótica/galvânica dos amplificadores</td></tr>
+                            <tr><td>Medição</td><td>Impedância PE com indicação luminosa</td></tr>
+                            <tr><td>Controle</td><td>Pedal para iniciar/interromper registro</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="eqsa260" class="secao-produto">
+            <div class="layout-detalhe">
+                <div class="coluna-foto"><img src="foto 4.png" class="foto-principal"></div>
+                <div class="coluna-texto">
+                    <h1>Neuromap® EQSA260</h1>
+                    <p class="descricao-longa">Eletroencefalógrafo de 26 canais, portátil, com peso inferior a 400 gramas. Utiliza técnicas DSP de última geração. Instalação rápida sem necessidade de bateria. Totalmente modularizado para uso em redes desktops e notebooks.</p>
+                    
+                    <div class="bloco-info">
+                        <h2>Realiza os seguintes exames:</h2>
+                        <ul class="lista-checks">
+                            <li>EEG Digital, Quantitativo e Topográfico</li>
+                            <li>Poligrafia Neonatal | Polissonografia</li>
+                            <li>Vídeo-EEG Digital | Vídeo-Polissonografia</li>
+                            <li>Monitoração com vídeo-EEG</li>
+                        </ul>
+                    </div>
+
+                    <div class="bloco-info">
+                        <h2>Especificações</h2>
+                        <table class="tabela-specs">
+                            <tr><td>Dimensões</td><td>16 x 14 x 6 cm</td></tr>
+                            <tr><td>Peso</td><td>360 g</td></tr>
+                            <tr><td>Canais EEG</td><td>22 canais de EEG</td></tr>
+                            <tr><td>Canais Bipolares</td><td>3 AC (EEG/ECG) + 1 DC (Oxímetros)</td></tr>
+                            <tr><td>Diferencial</td><td>Spliter - Módulo Isolador Integrado</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="bloco-info">
+                        <h2>Acessórios Opcionais</h2>
+                        <p class="descricao-longa">Foto Estimulador USB, Áudio-Estimulador, Oxímetro integrado e Sensores completos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <img src="foto 1.png" style="height: 35px; filter: brightness(0) invert(1); margin-bottom: 20px;">
+            <p style="opacity: 0.6; font-size: 13px;">Copyright © 2026 NEUROTEC® - Qualidade Reconhecida</p>
+        </div>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const produtoId = urlParams.get('id');
+
+        if (produtoId && document.getElementById(produtoId)) {
+            document.getElementById(produtoId).classList.add('active');
+            const nomeProd = document.getElementById(produtoId).querySelector('h1').innerText;
+            document.getElementById('hero-title').innerHTML = nomeProd.replace("Neuromap®", "Neuromap <span>") + "</span>";
+            document.title = "Neurotec - " + nomeProd;
+        } else {
+            document.getElementById('40i').classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificações e Prêmios - Neurotec</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --tech-grad: linear-gradient(90deg, #007cf0, #00dfd8);
+            --hero-blue: #d1e3f8;
+            --dark-blue: #002244;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER FIXO PADRONIZADO (7 BOTÕES) */
+        .header-wrapper { 
+            position: fixed; 
+            top: 25px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: auto; 
+            z-index: 2000; 
+        }
+        .header-nav { 
+            background: rgba(255, 255, 255, 0.96); 
+            backdrop-filter: blur(12px); 
+            padding: 10px 35px; 
+            border-radius: 50px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(255,255,255,0.5);
+            white-space: nowrap;
+        }
+        .logo img { height: 35px; margin-right: 10px; }
+        .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: #444; font-weight: 500; font-size: 13px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
+
+        /* HERO - TEMA AZUL REFINADO */
+        .hero-cert {
+            background-color: var(--hero-blue);
+            padding: 180px 0 100px 0;
+            border-radius: 0 0 80px 80px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-cert h1 { font-size: 52px; color: var(--dark-blue); font-weight: 700; margin-bottom: 20px; }
+        .hero-cert h1 span { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-cert p { font-size: 18px; color: #5a6f85; max-width: 700px; margin: 0 auto 40px; }
+
+        /* NAVEGAÇÃO DE ABAS */
+        .tab-navigation { display: flex; justify-content: center; gap: 15px; }
+        .tab-btn { 
+            padding: 12px 35px; 
+            border-radius: 40px; 
+            border: 2px solid var(--primary); 
+            background: transparent; 
+            color: var(--primary); 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        .tab-btn.active { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2); }
+
+        /* CONTEÚDO */
+        .tab-content { display: none; animation: fadeIn 0.6s ease; padding: 80px 0; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card-cert {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+        .card-cert h2 { color: var(--dark-blue); font-size: 24px; margin-bottom: 30px; }
+        .img-cert { max-width: 100%; border-radius: 15px; transition: 0.3s; }
+        .img-cert:hover { transform: scale(1.02); }
+
+        .oscar-saude { font-weight: 700; font-size: 26px; color: #b8860b; margin: 30px 0; }
+        .texto-agradecimento { font-size: 18px; color: #666; max-width: 800px; margin: 0 auto; }
+
+        /* FOOTER */
+        footer { background: #1a1a1a; color: #fff; padding: 60px 0; border-radius: 60px 60px 0 0; text-align: center; }
+
+        @media (max-width: 768px) {
+            .hero-cert h1 { font-size: 36px; }
+            .tab-navigation { flex-direction: column; align-items: center; }
+            .card-cert { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-wrapper">
+        <nav class="header-nav">
+            <div class="logo"><a href="index.html"><img src="foto 1.png" alt="Logo"></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="certificacoes.html" style="color: var(--primary);">Institucional</a></li>
+                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-cert">
+        <div class="container">
+            <h1>Excelência <span>Reconhecida</span></h1>
+            <p>Conheça os certificados de qualidade e as premiações que consolidam a trajetória da Neurotec® como referência mundial.</p>
+            
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="openTab(event, 'certificacoes')">Certificações</button>
+                <button class="tab-btn" onclick="openTab(event, 'premios')">Prêmios e Homenagens</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div id="certificacoes" class="tab-content active">
+            <div class="card-cert">
+                <img src="certificacoes4.png" alt="Selo Qualidade" class="img-cert" style="margin-bottom: 50px;">
+                
+                <h2>Sistema de Gestão da Qualidade EN ISO 9001 / EN ISO 13485</h2>
+                <img src="cert2.png" alt="Certificado ISO" class="img-cert" style="max-width: 450px;">
+            </div>
+
+            <div class="card-cert">
+                <h2>Certificados de Conformidade dos Produtos</h2>
+                <img src="certprod3.png" alt="Conformidade" class="img-cert">
+            </div>
+        </div>
+
+        <div id="premios" class="tab-content">
+            <div class="card-cert">
+                <img src="premios.png" alt="Prêmios Topo" class="img-cert" style="margin-bottom: 40px;">
+                
+                <div class="texto-agradecimento">
+                    <p>A Neurotec® agradece a você, cliente e amigo, pela confiança depositada em nossa equipe. Juntos conquistamos reconhecimentos que impulsionam a saúde brasileira.</p>
+                </div>
+
+                <p class="oscar-saude">Os 100 Mais Influentes da Saúde - Oscar da Saúde</p>
+                <img src="100mais.jpg" alt="Oscar da Saúde" class="img-cert" style="max-width: 400px; margin-bottom: 40px;">
+
+                <div class="texto-agradecimento">
+                    <p><strong>Obrigado por fazer parte desta história!</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+    /* NOVO RODAPÉ AZUL REFINADO (C/ LOGO) */
+    .footer-premium {
+        background-color: #001a33; /* Azul meio escuro sóbrio (Steel Blue) */
+        color: #ffffff;
+        padding: 80px 0 30px;
+        border-radius: 60px 60px 0 0; /* Curva elegante no topo */
+        margin-top: 100px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+        color: #e1ecf7; /* Azul muito claro para contraste suave nos títulos */
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .footer-col h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(90deg, #007cf0, #00dfd8); /* Traço em gradiente tecnológico */
+    }
+
+    .footer-info p {
+        font-size: 14px;
+        color: #c9d5e1; /* Cor de texto suave e legível */
+        line-height: 1.8;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* ESTILO DO LOGO NO RODAPÉ */
+    .footer-logo img {
+        height: 40px; /* Tamanho proporcional */
+        margin-bottom: 25px;
+        display: block;
+        /* IMPORTANTE: Filtro para deixar o logo branco sobre fundo azul */
+        filter: brightness(0) invert(1); 
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #c9d5e1;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        padding-left: 5px; /* Efeito hover sutil */
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divisor sutil */
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: #8c9dad;
+    }
+
+    .coracao-footer {
+        color: #e25555;
+        animation: pulseFooter 1.5s infinite;
+        display: inline-block;
+    }
+
+    @keyframes pulseFooter {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    @media (max-width: 900px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+        .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+        .footer-info p { justify-content: center; text-align: center; }
+        .footer-logo img { margin: 0 auto 25px auto; } /* Centraliza o logo no mobile */
+        .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    }
+</style>
+
+<footer class="footer-premium">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="foto 1.png" alt="Neurotec">
+                </div>
+                <p style="color: #c9d5e1; font-size: 14px; margin-bottom: 20px;">
+                    Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia clínica, fornecendo soluções de alta precisão para diagnósticos confiáveis.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                    <li><a href="downloads.html">Central de Downloads</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <div class="footer-info">
+                    <p>📍 R. Cordilheira dos Andes, 200<br>Itajubá - MG, Brasil<br>CEP: 37504-109</p>
+                    <p>📞 +55 (35) 3623-2500</p>
+                    <p>✉️ neurotec@neurotec.com.br</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2026 <strong>NEUROTEC®</strong>. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span class="coracao-footer">❤</span> para a Neurofisiologia</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

@@ -3,176 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurotec - Início</title>
+    <title>Neurotec - Excelência em Neurofisiologia</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        :root {
+            --primary: #0056b3;
+            --tech-grad: linear-gradient(90deg, #007cf0, #00dfd8);
+            --hero-blue: #d1e3f8; /* Azul um pouco mais escuro e elegante */
+            --dark-blue: #002244;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER FIXO E CENTRALIZADO (CORREÇÃO DEFINITIVA) */
+        .header-wrapper { 
+            position: fixed; 
+            top: 25px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: auto; 
+            z-index: 2000; 
+        }
+        .header-nav { 
+            background: rgba(255, 255, 255, 0.96); 
+            backdrop-filter: blur(12px); 
+            padding: 10px 35px; 
+            border-radius: 50px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(255,255,255,0.5);
+            white-space: nowrap;
+        }
+        .logo img { height: 35px; margin-right: 10px; }
+        .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: #444; font-weight: 500; font-size: 13px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
+
+        /* DROP-DOWN INSTITUCIONAL */
+        .dropdown { position: relative; cursor: pointer; }
+        .dropdown-content {
+            position: absolute; top: 110%; left: 50%; transform: translateX(-50%) translateY(15px);
+            background: white; min-width: 280px; border-radius: 18px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            padding: 20px; opacity: 0; visibility: hidden; transition: 0.3s;
+        }
+        .dropdown:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-item { display: block; padding: 12px; text-decoration: none; color: #333; border-radius: 10px; font-size: 13px; transition: 0.2s; }
+        .dropdown-item:hover { background: #f0f7ff; color: var(--primary); }
+
+        /* HERO - ESTRUTURA REFINADA */
+        .hero-home {
+            background-color: var(--hero-blue);
+            padding: 200px 0 120px 0; /* Espaço para o header fixo */
+            border-radius: 0 0 80px 80px;
+            position: relative;
+        }
+        .hero-flex { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .hero-text { flex: 1.3; }
+        .years-tag { color: var(--primary); font-weight: 600; font-size: 14px; margin-bottom: 10px; display: block; }
+        
+        .hero-text h1 { font-size: 58px; color: var(--dark-blue); font-weight: 700; line-height: 1.1; margin-bottom: 25px; }
+        .hero-text h1 span.color { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .hero-text p { font-size: 18px; color: #5a6f85; margin-bottom: 40px; max-width: 550px; }
+        
+        /* BOTÃO CONTATO */
+        .btn-contato-hero { 
+            display: inline-block; background-color: var(--primary); color: white; padding: 16px 50px; 
+            border-radius: 40px; text-decoration: none; font-weight: 600; transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.25);
+        }
+        .btn-contato-hero:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 86, 179, 0.4); }
+
+        .hero-img-container { flex: 0.7; position: relative; text-align: center; }
+        .img-flutuante { 
+            width: 380px; 
+            filter: drop-shadow(0 25px 50px rgba(0,0,0,0.15));
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .badge-venda { position: absolute; top: -10px; right: 40px; background: orange; color: white; padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: 11px; z-index: 10; }
+
+        /* DIFERENCIAIS */
+        .features-section { padding: 100px 0; text-align: center; }
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 60px; }
+        .feature-card { background: white; padding: 40px 25px; border-radius: 25px; border: 1px solid #f1f1f1; text-align: left; transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .icon-box { width: 55px; height: 55px; border-radius: 12px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: white; }
+
+        /* EQUIPAMENTOS & NOTÍCIAS */
+        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 50px 0; }
+        .product-item { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); text-align: center; text-decoration: none; color: inherit; transition: 0.3s; border: 1px solid #eee; }
+        .product-item:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .product-item img { height: 160px; object-fit: contain; }
+
+        .grade-noticias { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px; height: 600px; margin-top: 40px; }
+        .cartao-noticia { position: relative; border-radius: 20px; overflow: hidden; }
+        .cartao-noticia.principal { grid-row: span 2; }
+        .img-fundo { width: 100%; height: 100%; object-fit: cover; }
+        .sobreposicao { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
+        .conteudo-noticia { position: absolute; bottom: 30px; left: 30px; color: #fff; }
+
+        footer { background: #1a1a1a; color: #fff; padding: 60px 0 20px; border-radius: 60px 60px 0 0; text-align: center; }
+    </style>
 </head>
 <body>
 
-    <header class="header-pilula-wrapper">
-        <div class="header-pilula">
-            <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/foto 1.png" alt="Logo Neurotec"></a>
-            </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="sobre.html">Sobre a Empresa</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="header-wrapper">
+        <nav class="header-nav">
+            <div class="logo"><a href="index.html"><img src="foto 1.png" alt="Logo"></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li class="dropdown">
+                    <a>Institucional ▾</a>
+                    <div class="dropdown-content">
+                        <a href="certificacoes.html" class="dropdown-item"><b>Certificações</b><br><small>ISO e Conformidade</small></a>
+                        <a href="certificacoes.html#premios" class="dropdown-item"><b>Prêmios</b><br><small>Reconhecimento Mundial</small></a>
+                        <a href="faq.html" class="dropdown-item"><b>FAQ</b><br><small>Dúvidas Frequentes</small></a>
+                    </div>
+                </li>
+                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="header-compensacao-pilula"></div>
-
-    <section id="produtos" class="carrossel-container">
-        <div class="container relative carrossel-wrapper">
-
-            <button class="seta anterior" onclick="mudarSlide(-1)">‹</button>
-            <button class="seta proximo" onclick="mudarSlide(1)">›</button>
-
-            <div class="carrossel-track">
-                
-                <div class="slide">
-                    <div class="grade-produto">
-                        <div class="imagem-equipamento">
-                            <a href="pages/produto-1.html"><img src="assets/images/produtos/foto 2.png" alt="Produto 1"></a>
-                        </div>
-                        <div class="info-equipamento">
-                            <span class="categoria-destaque">DESTAQUE</span>
-                            <h1>Produto Principal</h1>
-                            <p class="descricao-curta">Descrição breve do seu primeiro equipamento de alta tecnologia.</p>
-                            <a href="pages/produto-1.html" class="btn-azul">Mais informações</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="grade-produto">
-                        <div class="imagem-equipamento">
-                            <a href="pages/produto-2.html"><img src="assets/images/produtos/foto 3.png" alt="Produto 2"></a>
-                        </div>
-                        <div class="info-equipamento">
-                            <span class="categoria-destaque">LANÇAMENTO</span>
-                            <h1>Segundo Equipamento</h1>
-                            <p class="descricao-curta">Descrição breve do seu segundo produto.</p>
-                            <a href="pages/produto-2.html" class="btn-azul">Mais informações</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="grade-produto">
-                        <div class="imagem-equipamento">
-                            <a href="pages/produto-3.html"><img src="assets/images/produtos/foto 4.png" alt="Produto 3"></a>
-                        </div>
-                        <div class="info-equipamento">
-                            <span class="categoria-destaque">ACESSÓRIO</span>
-                            <h1>Terceiro Produto</h1>
-                            <p class="descricao-curta">Descrição breve do seu terceiro equipamento ou acessório.</p>
-                            <a href="pages/produto-3.html" class="btn-azul">Mais informações</a>
-                        </div>
-                    </div>
-                </div>
-
+    <section class="hero-home">
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <span class="years-tag">+30 anos de excelência em neurofisiologia</span>
+                <h1>Tecnologia de<br><span class="color">Neurofisiologia</span><br><span class="color">Clínica</span></h1>
+                <p>Equipamentos para EEG, Polissonografia e monitoramento neurológico com certificação internacional. Diagnósticos mais rápidos e confiáveis.</p>
+                <a href="contato.html" class="btn-contato-hero">Contato</a>
             </div>
-
-            <div class="indicadores-carrossel">
-                <span class="ponto ativo" onclick="irParaSlide(0)"></span>
-                <span class="ponto" onclick="irParaSlide(1)"></span>
-                <span class="ponto" onclick="irParaSlide(2)"></span>
+            <div class="hero-img-container">
+                <span class="badge-venda">🏆 Mais Vendido</span>
+                <img src="foto 4.png" alt="EQSA260" class="img-flutuante">
             </div>
         </div>
     </section>
 
-    <section id="downloads" class="secao-downloads-home">
-        <div class="container">
-            <div class="titulo-downloads-home">
-                <h2>Downloads</h2>
+    <section class="features-section container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <span style="color: var(--primary); font-weight: 700; font-size: 14px; text-transform: uppercase;">Nossos Diferenciais</span>
+            <h2 style="font-size: 42px; color: var(--dark-blue); margin: 15px 0;">Por que escolher a Neurotec?</h2>
+            <p style="color: #666; font-size: 17px;">Mais de 30 anos desenvolvendo tecnologia de classe mundial para neurofisiologia clínica no Brasil.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon-box" style="background: #ff8c00;">⚡</div>
+                <h3>Alta Precisão</h3>
+                <p>Diagnósticos mais rápidos e confiáveis com tecnologia de ponta em aquisição de sinais.</p>
             </div>
+            <div class="feature-card">
+                <div class="icon-box" style="background: #2196F3;">🧠</div>
+                <h3>Tecnologia DSP</h3>
+                <p>Processamento digital de última geração para análise quantitativa e topográfica.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box" style="background: #00C853;">🔗</div>
+                <h3>Integração Total</h3>
+                <p>Compatível com sistemas clínicos e hospitalares. USB Plug & Play para instalação imediata.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box" style="background: #9C27B0;">🏢</div>
+                <h3>Versátil</h3>
+                <p>Do hospital à clínica portátil. Equipamentos para todas as necessidades de neurofisiologia.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid-downloads-home">
-                <div class="coluna-imagens-downloads">
-                    <div class="item-download-visual">
-                        <img src="assets/images/downloads/foto 5.png" alt="Manual Técnico">
-                    </div>
-                    <div class="item-download-visual">
-                        <img src="assets/images/downloads/foto 6.png" alt="Software de Aquisição">
-                    </div>
-                    <div class="item-download-visual">
-                        <img src="assets/images/downloads/foto 7.png" alt="Team Viewer">
-                    </div>
+    <section class="container" style="padding: 60px 0;">
+        <h2 style="text-align: center; color: var(--dark-blue); font-size: 32px;">Linha Neuromap</h2>
+        <div class="products-grid">
+            <a href="produto.html?id=40i" class="product-item">
+                <img src="foto 2.png" alt="40i">
+                <h3>Neuromap 40i</h3>
+            </a>
+            <a href="produto.html?id=eqpe041" class="product-item">
+                <img src="foto 3.png" alt="EQPE041">
+                <h3>Neuromap® EQPE041</h3>
+            </a>
+            <a href="produto.html?id=eqsa260" class="product-item">
+                <img src="foto 4.png" alt="EQSA260">
+                <h3>Neuromap® EQSA260</h3>
+            </a>
+        </div>
+    </section>
+
+    <section class="container" style="padding-bottom: 100px;">
+        <div style="text-align: center;">
+            <span style="color: #e25555; font-weight: 700; font-size: 14px;">ÚLTIMAS NOTÍCIAS</span>
+            <h2 style="font-size: 36px; color: var(--dark-blue); margin-top: 10px;">Fique por Dentro</h2>
+        </div>
+        <div class="grade-noticias">
+            <div class="cartao-noticia principal">
+                <img src="foto 5.png" class="img-fundo">
+                <div class="sobreposicao"></div>
+                <div class="conteudo-noticia">
+                    <h3>III Curso técnico-prático de Eletroencefalograma</h3>
+                    <a href="curso-3.html" style="color:#fff; font-weight:600; text-decoration:none;">Saiba mais ➔</a>
                 </div>
-
-                <div class="coluna-downloads-items">
-                    <div class="item-download-home">
-                        <h3>Guia Rápido de Instalação</h3>
-                        <p>Além do manual, consulte também o nosso Guia Rápido de Instalação. Clique no link abaixo para efetuar o download.</p>
-                        <a href="#" class="btn-download-home">Fazer Download</a>
-                    </div>
-
-                    <div class="item-download-home">
-                        <h3>Team Viewer</h3>
-                        <p>O TeamViewer permite que o suporte seja feito de forma rápida e eficiente, levando nosso técnico até você, em poucos segundos.</p>
-                        <p>Você pode baixar o software, clicando no link abaixo.</p>
-                        <a href="#" class="btn-download-home">Fazer Download</a>
-                    </div>
-
-                    <div class="item-download-home">
-                        <h3>Software de Aquisição de Dados</h3>
-                        <p>Aplicativo principal para captura e análise de sinais EEG em tempo real. Versão completa com todas as funcionalidades.</p>
-                        <a href="#" class="btn-download-home">Fazer Download</a>
-                    </div>
-
-                    <div class="botao-ver-todos-downloads">
-                        <a href="downloads.html" class="btn-ver-todos-downloads">Ver Todos os Downloads →</a>
-                    </div>
+            </div>
+            <div class="cartao-noticia">
+                <img src="foto 6.png" class="img-fundo">
+                <div class="sobreposicao"></div>
+                <div class="conteudo-noticia">
+                    <h3>II Curso técnico de EEG</h3>
+                </div>
+            </div>
+            <div class="cartao-noticia">
+                <img src="foto 7.png" class="img-fundo">
+                <div class="sobreposicao"></div>
+                <div class="conteudo-noticia">
+                    <h3>XXIX Congresso Brasileiro</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="assets/js/script.js"></script>
+<style>
+    .footer-premium {
+        background-color: #0b1118;
+        color: #ffffff;
+        padding: 80px 0 30px;
+        border-radius: 60px 60px 0 0;
+        margin-top: 100px;
+        position: relative;
+        z-index: 10;
+    }
 
-    <!-- RODAPÉ -->
-    <footer class="rodape-neurotec">
-        <div class="container">
-            <div class="conteudo-rodape">
-                <!-- LOGO À ESQUERDA -->
-                <div class="coluna-logo-rodape">
-                    <div class="logo-rodape">
-                        <img src="assets/images/logo/foto 1.png" alt="Logo Neurotec">
-                    </div>
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+        color: #d1e3f8;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .footer-col h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(90deg, #007cf0, #00dfd8);
+    }
+
+    .footer-info p {
+        font-size: 14px;
+        color: #a0aab5;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+        height: 40px;
+        filter: brightness(0) invert(1);
+        margin-bottom: 25px;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #a0aab5;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        padding-left: 5px;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: #6a7785;
+    }
+
+    .coracao-footer {
+        color: #e25555;
+        display: inline-block;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    @media (max-width: 900px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+        .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+        .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    }
+</style>
+
+<footer class="footer-premium">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="foto 1.png" alt="Neurotec">
                 </div>
-
-                <!-- INFORMAÇÕES À DIREITA -->
-                <div class="coluna-info-rodape">
-                    <div class="info-rodape-item">
-                        <p class="copyright">Copyright © 2026 NEUROTEC<span class="registro-rodape">®</span></p>
-                    </div>
-
-                    <div class="info-rodape-item">
-                        <p>R. Cordilheira dos Andes, 200 - Distrito Industrial, Itajubá - MG, Brasil, CEP: 37504-109</p>
-                    </div>
-
-                    <div class="info-rodape-item">
-                        <p><strong>Telefone:</strong> +55 (35) 3623-2500</p>
-                    </div>
-
-                    <div class="info-rodape-item">
-                        <p><strong>Email:</strong> neurotec@neurotec.com.br</p>
-                    </div>
-                </div>
+                <p style="color: #a0aab5; font-size: 14px; margin-bottom: 20px;">
+                    Líder em tecnologia de neurofisiologia clínica, desenvolvendo soluções de alta precisão para diagnósticos rápidos e confiáveis há mais de 30 anos.
+                </p>
             </div>
 
-            <div class="linha-divisoria-rodape"></div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
 
-            <div class="rodape-bottom">
-                <p>Desenvolvido com <span class="coracao">❤</span> para melhorar a saúde neurológica</p>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <div class="footer-info" style="color: #a0aab5; font-size: 14px;">
+                    <p>📍 R. Cordilheira dos Andes, 200<br>Itajubá - MG | CEP: 37504-109</p>
+                    <p>📞 +55 (35) 3623-2500</p>
+                    <p>✉️ neurotec@neurotec.com.br</p>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2026 <strong>NEUROTEC®</strong>. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span class="coracao-footer">❤</span> para a Neurofisiologia</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
