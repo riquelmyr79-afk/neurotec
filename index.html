@@ -10,10 +10,11 @@
         :root {
             --primary: #0056b3;
             --tech-grad: linear-gradient(90deg, #007cf0, #00dfd8);
-            --hero-blue: #d1e3f8;
+            --hero-blue: #b5d1f0; 
             --dark-blue: #002244;
             --deep-blue: #001a33;
             --white: #ffffff;
+            --grid-size: 30px; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,111 +35,123 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* DROP-DOWN INSTITUCIONAL CORRIGIDO */
+        /* DROP-DOWN INSTITUCIONAL */
         .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
         .dropdown-content {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(15px);
-            background: white; min-width: 280px; border-radius: 18px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            padding: 20px; opacity: 0; visibility: hidden; transition: 0.3s; z-index: 3000;
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: white; min-width: 260px; border-radius: 25px; box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            padding: 20px; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: 3000;
         }
-        .dropdown:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(5px); }
-        .dropdown-item { display: block; padding: 12px; text-decoration: none; color: #333; border-radius: 10px; font-size: 13px; transition: 0.2s; }
-        .dropdown-item:hover { background: #f0f7ff; color: var(--primary); }
-        .seta { font-size: 10px; margin-left: 5px; transition: 0.3s; }
+        .dropdown:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .dropdown-item { display: block; padding: 12px 15px; text-decoration: none; border-radius: 15px; transition: 0.2s; text-align: left; }
+        .dropdown-item:hover { background: #f8fbff; }
+        .dropdown-item b { display: block; color: #333; font-size: 14px; font-weight: 700; }
+        .dropdown-item small { display: block; color: #777; font-size: 11px; }
+        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
         .dropdown:hover .seta { transform: rotate(180deg); }
 
         /* HERO HOME */
-        .hero-home { background-color: var(--hero-blue); padding: 200px 0 120px 0; border-radius: 0 0 80px 80px; position: relative; }
+        .hero-home { 
+            background-color: var(--hero-blue);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+            background-size: var(--grid-size) var(--grid-size);
+            padding: 200px 0 120px 0; 
+            border-radius: 0 0 80px 80px; 
+            position: relative; 
+        }
         .hero-flex { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
-        .hero-text { flex: 1.3; }
         .hero-text h1 { font-size: 58px; color: var(--dark-blue); font-weight: 700; line-height: 1.1; margin-bottom: 25px; }
         .hero-text h1 span.color { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-text p { font-size: 18px; color: #5a6f85; margin-bottom: 40px; max-width: 550px; }
-        .btn-contato-hero { display: inline-block; background-color: var(--primary); color: white; padding: 16px 50px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: 0.3s; box-shadow: 0 10px 25px rgba(0, 86, 179, 0.25); }
-        .btn-contato-hero:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 86, 179, 0.4); }
+        .hero-text p { font-size: 18px; color: #3d4a57; margin-bottom: 30px; max-width: 550px; }
+        
+        /* BOTÃO FALE CONOSCO HERO */
+        .btn-hero-fale {
+            display: inline-block;
+            background: var(--primary);
+            color: white !important;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2);
+        }
+        .btn-hero-fale:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 86, 179, 0.3); }
 
         .hero-img-container { flex: 0.7; position: relative; text-align: center; }
         .img-flutuante { width: 380px; filter: drop-shadow(0 25px 50px rgba(0,0,0,0.15)); animation: float 4s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-        /* SELO MAIS VENDIDO ELEGANTE */
-        .badge-venda { 
-            position: absolute; top: -10px; right: 40px; 
-            background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(10px);
-            color: var(--dark-blue); padding: 6px 20px; border-radius: 30px; 
-            font-weight: 600; font-size: 11px; z-index: 10; 
-            border: 1px solid rgba(0, 86, 179, 0.15); letter-spacing: 0.5px;
-            text-transform: uppercase; box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-        .badge-venda::before { content: '★'; margin-right: 6px; color: var(--primary); font-size: 10px; }
-
-        /* SEÇÃO DIFERENCIAIS PREMIUM */
+        /* SEÇÃO DIFERENCIAIS */
         .features-section { 
             padding: 120px 0; 
-            background: linear-gradient(180deg, var(--deep-blue) 0%, #002a52 100%); 
+            background-color: var(--deep-blue);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: var(--grid-size) var(--grid-size);
             text-align: center; color: white; border-radius: 80px;
             margin: -40px 10px 0 10px; position: relative; z-index: 5;
         }
-        .features-header span { color: #00dfd8; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
-        .features-header h2 { font-size: 42px; margin: 15px 0 50px; }
-        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
-        
-        .feature-card { 
-            background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(12px);
-            padding: 50px 30px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); 
-            text-align: left; transition: 0.4s ease; 
-        }
-        .feature-card:hover { 
-            transform: translateY(-12px); background: rgba(255, 255, 255, 0.08);
-            border-color: #00dfd8; box-shadow: 0 20px 40px rgba(0, 223, 216, 0.1);
-        }
-
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 50px; }
+        .feature-card { background: rgba(255, 255, 255, 0.05); padding: 40px 25px; border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; }
         .icon-box { 
-            width: 65px; height: 65px; border-radius: 18px; margin-bottom: 25px; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 28px; color: white; position: relative;
-        }
-        .icon-box::after {
-            content: ''; position: absolute; inset: 0; border-radius: 18px;
-            filter: blur(15px); opacity: 0.5; z-index: -1; background: inherit;
+            width: 60px; height: 60px; border-radius: 15px; margin-bottom: 25px; 
+            display: flex; align-items: center; justify-content: center; font-size: 30px; 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
 
-        .feature-card h3 { font-size: 20px; margin-bottom: 15px; }
-        .feature-card p { font-size: 14px; color: #b0c4d8; line-height: 1.5; }
+        /* LINHA NEUROMAP (CARDS ELEGANTES) */
+        .neuromap-section { padding: 100px 0; background: #fff; text-align: center; }
+        .neuromap-section h2 { font-size: 36px; color: var(--dark-blue); font-weight: 700; margin-bottom: 60px; }
+        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        
+        .product-card { 
+            text-decoration: none; color: inherit; transition: all 0.4s ease; 
+            padding: 40px 20px; border-radius: 30px; 
+            background: #ffffff; border: 1px solid #f0f0f0;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .product-card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
+            border-color: var(--primary); 
+        }
+        .product-card img { width: 100%; max-width: 280px; height: auto; margin-bottom: 30px; }
+        .product-card h3 { 
+            font-size: 18px; color: var(--dark-blue); font-weight: 700; 
+            background: #f8fbff; padding: 10px 25px; border-radius: 50px;
+            transition: 0.3s;
+        }
+        .product-card:hover h3 { background: var(--primary); color: white; }
 
-        /* PRODUTOS E NOTÍCIAS */
-        .section-title { text-align: center; font-size: 32px; color: var(--dark-blue); margin: 80px 0 40px; }
-        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .product-item { background: #fff; padding: 30px; border-radius: 25px; text-align: center; text-decoration: none; color: inherit; transition: 0.3s; border: 1px solid #eee; }
-        .product-item:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .product-item img { height: 160px; object-fit: contain; margin-bottom: 20px; }
-
-        .grade-noticias { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px; height: 600px; margin-top: 40px; }
-        .cartao-noticia { position: relative; border-radius: 25px; overflow: hidden; }
+        /* NOTÍCIAS */
+        .grade-noticias { 
+            display: grid; grid-template-columns: 1.5fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; 
+            height: 380px; margin-top: 30px; 
+        }
+        .cartao-noticia { position: relative; border-radius: 18px; overflow: hidden; }
         .cartao-noticia.principal { grid-row: span 2; }
         .img-fundo { width: 100%; height: 100%; object-fit: cover; }
         .sobreposicao { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); }
-        .conteudo-noticia { position: absolute; bottom: 30px; left: 30px; color: #fff; }
+        .conteudo-noticia { position: absolute; bottom: 20px; left: 20px; color: #fff; }
 
-        /* FOOTER PREMIUM AZUL */
-        .footer-premium { background-color: var(--deep-blue); color: #ffffff; padding: 80px 0 30px; border-radius: 60px 60px 0 0; margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+        /* FOOTER */
+        .footer-premium { background-color: var(--deep-blue); color: #ffffff; padding: 70px 0 30px; border-radius: 60px 60px 0 0; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
         .footer-col h4 { color: #d1e3f8; font-size: 18px; font-weight: 600; margin-bottom: 25px; position: relative; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--tech-grad); }
-        .footer-logo img { height: 40px; filter: brightness(0) invert(1); margin-bottom: 25px; }
-        .footer-info p { font-size: 14px; color: #c9d5e1; line-height: 1.8; margin-bottom: 15px; }
         .footer-links { list-style: none; }
-        .footer-links a { color: #c9d5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #c9d5e1; text-decoration: none; font-size: 14px; transition: 0.2s; }
         .footer-links a:hover { color: #fff; padding-left: 5px; }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8c9dad; }
-        .coracao-footer { color: #e25555; animation: pulse 1.5s infinite; display: inline-block; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 25px; display: flex; justify-content: space-between; font-size: 12px; color: #8c9dad; }
 
         @media (max-width: 1000px) {
-            .features-grid, .products-grid, .grade-noticias { grid-template-columns: 1fr; height: auto; }
             .hero-flex { flex-direction: column; text-align: center; }
-            .hero-text h1 { font-size: 38px; }
-            .badge-venda { right: 50%; transform: translateX(50%); }
+            .features-grid, .products-grid, .grade-noticias { grid-template-columns: 1fr; height: auto; }
         }
     </style>
 </head>
@@ -154,14 +167,14 @@
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
                 <li class="dropdown">
-                    <a>Institucional <span class="seta">▼</span></a>
+                    <a href="#">Institucional <span class="seta">▼</span></a>
                     <div class="dropdown-content">
                         <a href="certificacoes.html" class="dropdown-item"><b>Certificações</b><br><small>ISO e Conformidade</small></a>
                         <a href="certificacoes.html#premios" class="dropdown-item"><b>Prêmios</b><br><small>Reconhecimento Mundial</small></a>
                         <a href="faq.html" class="dropdown-item"><b>FAQ</b><br><small>Dúvidas Frequentes</small></a>
                     </div>
                 </li>
-                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+                <li><a href="https://neurotec.lojavirtuolpro.com/" class="btn-loja-nav" target="_blank">Loja</a></li>
             </ul>
         </nav>
     </header>
@@ -169,13 +182,12 @@
     <section class="hero-home">
         <div class="container hero-flex">
             <div class="hero-text">
-                <span style="color: var(--primary); font-weight: 600; font-size: 14px;">+30 anos de excelência em neurofisiologia</span>
+                <span style="color: var(--primary); font-weight: 600; font-size: 14px; margin-bottom: 10px; display: block;">+30 anos de excelência em neurofisiologia</span>
                 <h1>Tecnologia de<br><span class="color">Neurofisiologia</span><br><span class="color">Clínica</span></h1>
-                <p>Equipamentos para EEG, Polissonografia e monitoramento neurológico com certificação internacional. Diagnósticos mais rápidos e confiáveis.</p>
-                <a href="contato.html" class="btn-contato-hero">Fale Conosco</a>
+                <p>Equipamentos com certificação internacional. Diagnósticos mais rápidos e confiáveis.</p>
+                <a href="contato.html" class="btn-hero-fale">Fale Conosco</a>
             </div>
             <div class="hero-img-container">
-                <span class="badge-venda">Mais Vendido</span>
                 <img src="foto 4.png" alt="EQSA260" class="img-flutuante">
             </div>
         </div>
@@ -184,65 +196,64 @@
     <section class="features-section">
         <div class="container">
             <div class="features-header">
-                <span>Nossos Diferenciais</span>
+                <span style="color: #00dfd8; text-transform: uppercase; font-size: 13px; letter-spacing: 2px;">Nossos Diferenciais</span>
                 <h2>Por que escolher a Neurotec?</h2>
             </div>
-            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="icon-box" style="background: #ff8c00;">⚡</div>
                     <h3>Alta Precisão</h3>
-                    <p>Tecnologia de ponta para captação de sinais limpos e diagnósticos extremamente confiáveis.</p>
+                    <p>Tecnologia de ponta para captação de sinais limpos.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box" style="background: #2196F3;">🧠</div>
                     <h3>Tecnologia DSP</h3>
-                    <p>Processamento digital de última geração para análise quantitativa e mapeamento topográfico.</p>
+                    <p>Análise quantitativa e mapeamento topográfico digital.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box" style="background: #00C853;">🔗</div>
                     <h3>Integração Total</h3>
-                    <p>Compatível com sistemas hospitalares. USB Plug & Play para instalação e uso imediatos.</p>
+                    <p>Compatível com sistemas hospitalares modernos.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box" style="background: #9C27B0;">🏢</div>
                     <h3>Versatilidade</h3>
-                    <p>Soluções adaptáveis para grandes centros hospitalares ou clínicas portáteis de alta demanda.</p>
+                    <p>Soluções adaptáveis para qualquer demanda clínica.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container">
-        <h2 class="section-title">Linha Neuromap</h2>
+    <section class="neuromap-section container">
+        <h2>Linha Neuromap</h2>
         <div class="products-grid">
-            <a href="produto.html?id=40i" class="product-item">
-                <img src="foto 2.png" alt="40i">
+            <a href="produto.html?id=40i" class="product-card">
+                <img src="foto 2.png" alt="Neuromap 40i">
                 <h3>Neuromap 40i</h3>
             </a>
-            <a href="produto.html?id=eqpe041" class="product-item">
-                <img src="foto 3.png" alt="EQPE041">
+            <a href="produto.html?id=eqpe041" class="product-card">
+                <img src="foto 3.png" alt="Neuromap EQPE041">
                 <h3>Neuromap® EQPE041</h3>
             </a>
-            <a href="produto.html?id=eqsa260" class="product-item">
-                <img src="foto 4.png" alt="EQSA260">
+            <a href="produto.html?id=eqsa260" class="product-card">
+                <img src="foto 4.png" alt="Neuromap EQSA260">
                 <h3>Neuromap® EQSA260</h3>
             </a>
         </div>
     </section>
 
-    <section class="container" style="padding: 100px 0;">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <span style="color: #e25555; font-weight: 700; font-size: 14px;">ÚLTIMAS NOTÍCIAS</span>
-            <h2 style="font-size: 36px; color: var(--dark-blue); margin-top: 10px;">Fique por Dentro</h2>
+    <section class="container" style="padding: 60px 0;">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <span style="color: #e25555; font-weight: 700; font-size: 12px;">ÚLTIMAS NOTÍCIAS</span>
+            <h2 style="font-size: 28px; color: var(--dark-blue); margin-top: 5px;">Fique por Dentro</h2>
         </div>
         <div class="grade-noticias">
             <div class="cartao-noticia principal">
                 <img src="foto 5.png" class="img-fundo">
                 <div class="sobreposicao"></div>
                 <div class="conteudo-noticia">
-                    <h3>III Curso técnico-prático de Eletroencefalograma</h3>
-                    <a href="curso-3.html" style="color:#fff; font-weight:600; text-decoration:none;">Saiba mais ➔</a>
+                    <h3 style="font-size: 18px; margin-bottom: 10px;">III Curso técnico-prático de Eletroencefalograma</h3>
+                    <a href="curso-3.html" style="color:#fff; font-size: 13px; text-decoration:none;">Saiba mais ➔</a>
                 </div>
             </div>
             <div class="cartao-noticia">
@@ -266,8 +277,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo"><img src="foto 1.png" alt="Neurotec"></div>
-                    <p>Líder em tecnologia de neurofisiologia clínica há mais de 30 anos.</p>
+                    <div class="footer-logo"><img src="foto 1.png" alt="Neurotec" style="filter: brightness(0) invert(1);"></div>
+                    <p style="font-size: 13px; color: #c9d5e1; margin-top: 15px;">Líder em tecnologia há mais de 30 anos.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navegação</h4>
@@ -276,14 +287,16 @@
                         <li><a href="produtos.html">Produtos</a></li>
                         <li><a href="sobre.html">Sobre</a></li>
                         <li><a href="contato.html">Contato</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="certificacoes.html">Institucional</a></li>
+                        <li><a href="https://neurotec.lojavirtuolpro.com/" target="_blank">Loja</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contato</h4>
-                    <div class="footer-info">
-                        <p>📍 R. Cordilheira dos Andes, 200, Itajubá - MG</p>
+                    <div class="footer-info" style="color: #c9d5e1; font-size: 14px;">
+                        <p>📍 Itajubá - MG</p>
                         <p>📞 +55 (35) 3623-2500</p>
-                        <p>✉️ neurotec@neurotec.com.br</p>
                     </div>
                 </div>
             </div>
