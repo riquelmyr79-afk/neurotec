@@ -19,26 +19,13 @@
         body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER FIXO PADRONIZADO (7 BOTÕES) */
+        /* HEADER FIXO CENTRALIZADO */
         .header-wrapper { 
-            position: fixed; 
-            top: 25px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: auto; 
-            z-index: 2000; 
+            position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: auto; z-index: 2000; 
         }
         .header-nav { 
-            background: rgba(255, 255, 255, 0.96); 
-            backdrop-filter: blur(12px); 
-            padding: 10px 35px; 
-            border-radius: 50px; 
-            display: flex; 
-            align-items: center; 
-            gap: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
-            border: 1px solid rgba(255,255,255,0.5);
-            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); padding: 10px 35px; border-radius: 50px; 
+            display: flex; align-items: center; gap: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); white-space: nowrap;
         }
         .logo img { height: 35px; margin-right: 10px; }
         .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
@@ -46,7 +33,43 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* HERO - TEMA AZUL REFINADO */
+        /* DROP-DOWN INSTITUCIONAL ESTILO CARD (IGUAL À FOTO) */
+        .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
+        .dropdown-content {
+            position: absolute; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(20px);
+            background: white; 
+            min-width: 260px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            padding: 20px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+        }
+        .dropdown:hover .dropdown-content { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateX(-50%) translateY(10px); 
+        }
+        .dropdown-item { 
+            display: block; 
+            padding: 12px 15px; 
+            text-decoration: none; 
+            border-radius: 15px; 
+            transition: 0.2s; 
+            text-align: left;
+        }
+        .dropdown-item:hover { background: #f8fbff; }
+        .dropdown-item b { display: block; color: #333; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .dropdown-item small { display: block; color: #777; font-size: 12px; font-weight: 400; }
+        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
+        .dropdown:hover .seta { transform: rotate(180deg); }
+
+        /* HERO */
         .faq-hero {
             background-color: var(--hero-blue);
             padding: 180px 0 100px 0;
@@ -58,50 +81,38 @@
         .faq-hero h1 span { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .faq-hero p { font-size: 18px; color: #5a6f85; max-width: 800px; margin: 0 auto; }
 
-        /* ALERTAS / OBSERVAÇÕES */
+        /* CONTEÚDO FAQ */
         .notas-fixas { 
-            background: #fff; 
-            padding: 40px; 
-            border-radius: 30px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04); 
-            margin: -40px auto 60px; 
-            position: relative;
-            z-index: 10;
-            border-left: 8px solid var(--danger);
-            border: 1px solid #f0f0f0;
-            border-left: 8px solid var(--danger);
+            background: #fff; padding: 40px; border-radius: 30px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04); margin: -40px auto 60px; 
+            position: relative; z-index: 10; border: 1px solid #f0f0f0; border-left: 8px solid var(--danger);
         }
         .notas-fixas h3 { color: var(--danger); margin-bottom: 25px; font-size: 24px; display: flex; align-items: center; gap: 10px; }
         .notas-fixas p { font-size: 15px; color: #444; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #f8f8f8; }
-        .notas-fixas p:last-child { border-bottom: none; }
 
-        /* ACORDEÃO MESTRE (TÓPICOS) */
         .topico-bloco { margin-bottom: 30px; background: #fff; border-radius: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border: 1px solid #eee; overflow: hidden; }
-        .topico-mestre > summary { padding: 30px 40px; font-size: 20px; font-weight: 700; color: var(--dark-blue); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
-        .topico-mestre > summary:hover { background: #fcfdfe; }
+        .topico-mestre > summary { padding: 30px 40px; font-size: 20px; font-weight: 700; color: var(--dark-blue); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
         .topico-mestre > summary::after { content: '→'; transition: 0.3s; color: var(--primary); font-size: 24px; }
         .topico-mestre[open] > summary::after { transform: rotate(90deg); }
-        .topico-mestre[open] > summary { border-bottom: 1px solid #eee; background: #fcfdfe; }
 
-        /* SUBTÓPICOS (PERGUNTAS) */
-        .pergunta-bloco { margin: 15px 40px; border-bottom: 1px solid #f8f8f8; padding-bottom: 10px; }
-        .pergunta-bloco:last-child { border-bottom: none; }
+        .pergunta-bloco { margin: 15px 40px; border-bottom: 1px solid #f8f8f8; }
         .pergunta-bloco summary { padding: 20px 0; font-size: 17px; font-weight: 600; color: var(--primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; }
-        .pergunta-bloco summary::after { content: '+'; font-size: 24px; }
-        .pergunta-bloco[open] summary::after { content: '−'; }
-
-        /* RESPOSTA FINAL */
         .resposta { padding: 5px 0 30px; color: #666; font-size: 16px; animation: fadeIn 0.4s ease; }
-        .resposta strong { color: #333; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* FOOTER */
-        footer { background: #1a1a1a; color: #fff; padding: 60px 0; border-radius: 60px 60px 0 0; text-align: center; margin-top: 100px; }
+        .footer-premium { background-color: #001a33; color: #ffffff; padding: 80px 0 30px; border-radius: 60px 60px 0 0; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+        .footer-col h4 { color: #e1ecf7; font-size: 18px; font-weight: 600; margin-bottom: 25px; position: relative; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--tech-grad); }
+        .footer-logo img { height: 40px; filter: brightness(0) invert(1); margin-bottom: 25px; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8c9dad; }
+        .coracao-footer { color: #e25555; animation: pulse 1.5s infinite; display: inline-block; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .faq-hero h1 { font-size: 36px; }
-            .topico-mestre > summary { padding: 20px; font-size: 18px; }
-            .pergunta-bloco { margin: 10px 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
@@ -116,8 +127,24 @@
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="certificacoes.html">Institucional</a></li>
-                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+                <li class="dropdown">
+                    <a href="#" style="display: flex; align-items: center;">Institucional <span class="seta">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="certificacoes.html" class="dropdown-item">
+                            <b>Certificações</b>
+                            <small>ISO e Conformidade</small>
+                        </a>
+                        <a href="certificacoes.html#premios" class="dropdown-item">
+                            <b>Prêmios</b>
+                            <small>Reconhecimento Mundial</small>
+                        </a>
+                        <a href="faq.html" class="dropdown-item">
+                            <b>FAQ</b>
+                            <small>Dúvidas Frequentes</small>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="https://neurotec.lojavirtuolpro.com/" class="btn-loja-nav" target="_blank">Loja</a></li>
             </ul>
         </nav>
     </header>
@@ -141,39 +168,13 @@
         <div class="topico-bloco">
             <details class="topico-mestre">
                 <summary>BACKUP E RESTAURAÇÃO DE ARQUIVOS</summary>
-                
                 <details class="pergunta-bloco">
                     <summary>Consigo fazer um backup de arquivo em um Pendrive?</summary>
-                    <div class="resposta">
-                        <p>Sim. Verifique o funcionamento do dispositivo. Faça testes com outros programas de gravação caso necessário. Se houver problemas, solicite auxílio do seu técnico em TI.</p>
-                    </div>
+                    <div class="resposta"><p>Sim. Verifique o funcionamento do dispositivo e solicite auxílio do seu técnico em TI se necessário.</p></div>
                 </details>
-
                 <details class="pergunta-bloco">
                     <summary>Como eu faço para restaurar os arquivos do Neuromap?</summary>
-                    <div class="resposta">
-                        <p><strong>No Neuromap:</strong></p>
-                        <ol style="margin-left: 20px; margin-top: 10px;">
-                            <li>Vá ao menu Arquivo -> Transferir -> Exames;</li>
-                            <li>Selecione a origem (Pendrive/CD) e marque os exames;</li>
-                            <li>No destino, aponte para a pasta de exames do Neuromap e clique em Transferir.</li>
-                        </ol>
-                    </div>
-                </details>
-            </details>
-        </div>
-
-        <div class="topico-bloco">
-            <details class="topico-mestre">
-                <summary>CONFIGURAÇÃO DE REDE</summary>
-                <details class="pergunta-bloco">
-                    <summary>Como configurar o Neuromap para análise em rede?</summary>
-                    <div class="resposta">
-                        <ol style="margin-left: 20px;">
-                            <li>Instale o Neuromap no PC de gravação e mapeie a unidade no PC de análise;</li>
-                            <li>No menu Configurações -> Pastas, substitua a unidade C: pela letra mapeada da rede para Exames, Dados e Laudos.</li>
-                        </ol>
-                    </div>
+                    <div class="resposta"><p>Vá ao menu Arquivo -> Transferir -> Exames, selecione a origem e aponte para a pasta de destino.</p></div>
                 </details>
             </details>
         </div>
@@ -183,178 +184,43 @@
                 <summary>ELETRODOS</summary>
                 <details class="pergunta-bloco">
                     <summary>Como faço para conservar os eletrodos?</summary>
-                    <div class="resposta">
-                        <p>Lave em água corrente com escova macia. Seque-os imediatamente. <strong>Nunca deixe de molho</strong>, pois isso oxida o material e reduz a vida útil drasticamente.</p>
-                    </div>
-                </details>
-                <details class="pergunta-bloco">
-                    <summary>Qual tipo de eletrodo posso utilizar?</summary>
-                    <div class="resposta">
-                        <p>Estanho, ouro, prata ou prata clorada. Importante: nunca utilize tipos diferentes simultaneamente no mesmo exame.</p>
-                    </div>
+                    <div class="resposta"><p>Lave em água corrente com escova macia. Seque-os imediatamente. <strong>Nunca deixe de molho.</strong></p></div>
                 </details>
             </details>
         </div>
+    </div>
 
-        <div class="topico-bloco">
-            <details class="topico-mestre">
-                <summary>INTERFERÊNCIAS NO SINAL</summary>
-                <details class="pergunta-bloco">
-                    <summary>Muita interferência de 60Hz no sinal?</summary>
-                    <div class="resposta">
-                        <p>Verifique a tomada e o aterramento (deve estar abaixo de 5 Ohms). Confira se não há cabos de energia passando próximos aos cabos de sinal do paciente.</p>
+    <footer class="footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><img src="foto 1.png" alt="Neurotec"></div>
+                    <p>Líder em tecnologia de neurofisiologia clínica há mais de 30 anos.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="sobre.html">Sobre a Empresa</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <div class="footer-info">
+                        <p>📍 R. Cordilheira dos Andes, 200, Itajubá - MG</p>
+                        <p>📞 +55 (35) 3623-2500</p>
+                        <p>✉️ neurotec@neurotec.com.br</p>
                     </div>
-                </details>
-            </details>
-        </div>
-
-    </div>
-
-<style>
-    /* NOVO RODAPÉ AZUL REFINADO (C/ LOGO) */
-    .footer-premium {
-        background-color: #001a33; /* Azul meio escuro sóbrio (Steel Blue) */
-        color: #ffffff;
-        padding: 80px 0 30px;
-        border-radius: 60px 60px 0 0; /* Curva elegante no topo */
-        margin-top: 100px;
-        position: relative;
-        z-index: 10;
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr;
-        gap: 60px;
-        margin-bottom: 50px;
-    }
-
-    .footer-col h4 {
-        color: #e1ecf7; /* Azul muito claro para contraste suave nos títulos */
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 25px;
-        position: relative;
-    }
-
-    .footer-col h4::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 30px;
-        height: 2px;
-        background: linear-gradient(90deg, #007cf0, #00dfd8); /* Traço em gradiente tecnológico */
-    }
-
-    .footer-info p {
-        font-size: 14px;
-        color: #c9d5e1; /* Cor de texto suave e legível */
-        line-height: 1.8;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    /* ESTILO DO LOGO NO RODAPÉ */
-    .footer-logo img {
-        height: 40px; /* Tamanho proporcional */
-        margin-bottom: 25px;
-        display: block;
-        /* IMPORTANTE: Filtro para deixar o logo branco sobre fundo azul */
-        filter: brightness(0) invert(1); 
-    }
-
-    .footer-links {
-        list-style: none;
-    }
-
-    .footer-links li {
-        margin-bottom: 12px;
-    }
-
-    .footer-links a {
-        color: #c9d5e1;
-        text-decoration: none;
-        font-size: 14px;
-        transition: 0.3s;
-    }
-
-    .footer-links a:hover {
-        color: #fff;
-        padding-left: 5px; /* Efeito hover sutil */
-    }
-
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divisor sutil */
-        padding-top: 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-        color: #8c9dad;
-    }
-
-    .coracao-footer {
-        color: #e25555;
-        animation: pulseFooter 1.5s infinite;
-        display: inline-block;
-    }
-
-    @keyframes pulseFooter {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-    }
-
-    @media (max-width: 900px) {
-        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-        .footer-col h4::after { left: 50%; transform: translateX(-50%); }
-        .footer-info p { justify-content: center; text-align: center; }
-        .footer-logo img { margin: 0 auto 25px auto; } /* Centraliza o logo no mobile */
-        .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-    }
-</style>
-
-<footer class="footer-premium">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="footer-logo">
-                    <img src="foto 1.png" alt="Neurotec">
-                </div>
-                <p style="color: #c9d5e1; font-size: 14px; margin-bottom: 20px;">
-                    Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia clínica, fornecendo soluções de alta precisão para diagnósticos confiáveis.
-                </p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Navegação</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="sobre.html">Sobre a Empresa</a></li>
-                    <li><a href="downloads.html">Central de Downloads</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Contato</h4>
-                <div class="footer-info">
-                    <p>📍 R. Cordilheira dos Andes, 200<br>Itajubá - MG, Brasil<br>CEP: 37504-109</p>
-                    <p>📞 +55 (35) 3623-2500</p>
-                    <p>✉️ neurotec@neurotec.com.br</p>
                 </div>
             </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2026 <strong>NEUROTEC®</strong></p>
+                <p>Desenvolvido com <span class="coracao-footer">❤</span></p>
+            </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>Copyright © 2026 <strong>NEUROTEC®</strong>. Todos os direitos reservados.</p>
-            <p>Desenvolvido com <span class="coracao-footer">❤</span> para a Neurofisiologia</p>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 </body>
 </html>

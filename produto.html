@@ -12,32 +12,20 @@
             --hero-blue: #d1e3f8;
             --dark-blue: #002244;
             --white: #ffffff;
+            --footer-blue: #001a33;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER FIXO PADRONIZADO (7 BOTÕES) */
+        /* HEADER FIXO CENTRALIZADO */
         .header-wrapper { 
-            position: fixed; 
-            top: 25px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: auto; 
-            z-index: 2000; 
+            position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: auto; z-index: 2000; 
         }
         .header-nav { 
-            background: rgba(255, 255, 255, 0.96); 
-            backdrop-filter: blur(12px); 
-            padding: 10px 35px; 
-            border-radius: 50px; 
-            display: flex; 
-            align-items: center; 
-            gap: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
-            border: 1px solid rgba(255,255,255,0.5);
-            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); padding: 10px 35px; border-radius: 50px; 
+            display: flex; align-items: center; gap: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); white-space: nowrap;
         }
         .logo img { height: 35px; margin-right: 10px; }
         .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
@@ -45,7 +33,38 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* HERO - TEMA AZUL REFINADO */
+        /* DROP-DOWN INSTITUCIONAL ESTILO CARD */
+        .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
+        .dropdown-content {
+            position: absolute; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(20px);
+            background: white; 
+            min-width: 260px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            padding: 20px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+        }
+        .dropdown:hover .dropdown-content { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateX(-50%) translateY(10px); 
+        }
+        .dropdown-item { 
+            display: block; padding: 12px 15px; text-decoration: none; border-radius: 15px; transition: 0.2s; text-align: left;
+        }
+        .dropdown-item:hover { background: #f8fbff; }
+        .dropdown-item b { display: block; color: #333; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .dropdown-item small { display: block; color: #777; font-size: 12px; font-weight: 400; }
+        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
+        .dropdown:hover .seta { transform: rotate(180deg); }
+
+        /* HERO PRODUTO */
         .hero-produto {
             background-color: var(--hero-blue);
             padding: 180px 0 80px 0;
@@ -58,35 +77,39 @@
         /* ESTRUTURA DO PRODUTO */
         .secao-produto { padding: 80px 0; display: none; } 
         .secao-produto.active { display: block; animation: fadeIn 0.6s ease; }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .layout-detalhe { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        
         .coluna-foto { position: sticky; top: 120px; text-align: center; }
         .foto-principal { max-width: 100%; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.06); background: white; padding: 50px; border: 1px solid #f0f0f0; }
-
         .descricao-longa { font-size: 16px; color: #5a6f85; margin-bottom: 40px; text-align: justify; }
-
         .bloco-info { margin-bottom: 40px; background: #fcfdfe; padding: 30px; border-radius: 20px; border: 1px solid #f0f4f8; }
         .bloco-info h2 { font-size: 20px; color: var(--dark-blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
-        
         .lista-checks { list-style: none; }
         .lista-checks li { margin-bottom: 12px; display: flex; gap: 12px; align-items: center; font-weight: 500; color: #444; }
         .lista-checks li::before { content: '✓'; color: var(--primary); font-weight: bold; font-size: 18px; }
-
         .tabela-specs { width: 100%; border-collapse: collapse; }
         .tabela-specs td { padding: 15px 0; border-bottom: 1px solid #eef2f6; font-size: 15px; }
         .tabela-specs td:first-child { font-weight: 700; color: var(--dark-blue); width: 45%; }
         .tabela-specs tr:last-child td { border-bottom: none; }
 
         /* FOOTER */
-        footer { background: #1a1a1a; color: #fff; padding: 60px 0; border-radius: 60px 60px 0 0; text-align: center; margin-top: 100px; }
+        .footer-premium { background-color: var(--footer-blue); color: #ffffff; padding: 80px 0 30px; border-radius: 60px 60px 0 0; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+        .footer-col h4 { color: #e1ecf7; font-size: 18px; font-weight: 600; margin-bottom: 25px; position: relative; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--tech-grad); }
+        .footer-logo img { height: 40px; filter: brightness(0) invert(1); margin-bottom: 25px; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8c9dad; }
+        .coracao-footer { color: #e25555; animation: pulse 1.5s infinite; display: inline-block; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
         @media (max-width: 900px) {
             .layout-detalhe { grid-template-columns: 1fr; gap: 40px; }
             .coluna-foto { position: static; }
             .hero-produto h1 { font-size: 36px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
@@ -101,8 +124,24 @@
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="certificacoes.html">Institucional</a></li>
-                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+                <li class="dropdown">
+                    <a href="#" style="display: flex; align-items: center;">Institucional <span class="seta">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="certificacoes.html" class="dropdown-item">
+                            <b>Certificações</b>
+                            <small>ISO e Conformidade</small>
+                        </a>
+                        <a href="certificacoes.html#premios" class="dropdown-item">
+                            <b>Prêmios</b>
+                            <small>Reconhecimento Mundial</small>
+                        </a>
+                        <a href="faq.html" class="dropdown-item">
+                            <b>FAQ</b>
+                            <small>Dúvidas Frequentes</small>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="https://neurotec.lojavirtuolpro.com/" class="btn-loja-nav" target="_blank">Loja</a></li>
             </ul>
         </nav>
     </header>
@@ -220,10 +259,36 @@
 
     </div>
 
-    <footer>
+    <footer class="footer-premium">
         <div class="container">
-            <img src="foto 1.png" style="height: 35px; filter: brightness(0) invert(1); margin-bottom: 20px;">
-            <p style="opacity: 0.6; font-size: 13px;">Copyright © 2026 NEUROTEC® - Qualidade Reconhecida</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><img src="foto 1.png" alt="Neurotec"></div>
+                    <p style="color: #c9d5e1; font-size: 14px;">Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia clínica brasileira.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="sobre.html">Sobre a Empresa</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <div class="footer-info" style="color: #c9d5e1; font-size: 14px;">
+                        <p>📍 R. Cordilheira dos Andes, 200, Itajubá - MG</p>
+                        <p>📞 +55 (35) 3623-2500</p>
+                        <p>✉️ neurotec@neurotec.com.br</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2026 <strong>NEUROTEC®</strong>. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <span class="coracao-footer">❤</span></p>
+            </div>
         </div>
     </footer>
 

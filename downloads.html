@@ -19,7 +19,7 @@
         body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER FIXO PADRONIZADO (7 BOTÕES) */
+        /* HEADER FIXO CENTRALIZADO */
         .header-wrapper { 
             position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: auto; z-index: 2000; 
         }
@@ -31,9 +31,47 @@
         .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: #444; font-weight: 500; font-size: 13px; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
+        
+        /* BOTÃO LOJA (LINK EXTERNO) */
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* HERO - TEMA AZUL REFINADO */
+        /* DROP-DOWN INSTITUCIONAL ESTILO CARD */
+        .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
+        .dropdown-content {
+            position: absolute; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(20px);
+            background: white; 
+            min-width: 260px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            padding: 20px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+        }
+        .dropdown:hover .dropdown-content { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateX(-50%) translateY(10px); 
+        }
+        .dropdown-item { 
+            display: block; 
+            padding: 12px 15px; 
+            text-decoration: none; 
+            border-radius: 15px; 
+            transition: 0.2s; 
+            text-align: left;
+        }
+        .dropdown-item:hover { background: #f8fbff; }
+        .dropdown-item b { display: block; color: #333; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .dropdown-item small { display: block; color: #777; font-size: 12px; font-weight: 400; }
+        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
+        .dropdown:hover .seta { transform: rotate(180deg); }
+
+        /* HERO */
         .hero-interna {
             background-color: var(--hero-blue);
             padding: 180px 0 100px 0;
@@ -52,7 +90,7 @@
         }
         .tab-btn.active { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2); }
 
-        /* CONTEÚDO DE DOWNLOADS */
+        /* CONTEÚDO */
         .tab-content { display: none; padding: 60px 0; animation: fadeIn 0.6s ease; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -71,7 +109,7 @@
         }
         .btn-download:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 86, 179, 0.2); }
 
-        /* RODAPÉ PREMIUM (CORRIGIDO) */
+        /* RODAPÉ PREMIUM */
         .footer-premium { background-color: var(--footer-blue); color: #ffffff; padding: 80px 0 30px; border-radius: 60px 60px 0 0; margin-top: 100px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
         .footer-col h4 { color: #e1ecf7; font-size: 18px; font-weight: 600; margin-bottom: 25px; position: relative; }
@@ -106,8 +144,24 @@
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="downloads.html" style="color: var(--primary);">Downloads</a></li>
-                <li><a href="certificacoes.html">Institucional</a></li>
-                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+                <li class="dropdown">
+                    <a href="#" style="display: flex; align-items: center;">Institucional <span class="seta">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="certificacoes.html" class="dropdown-item">
+                            <b>Certificações</b>
+                            <small>ISO e Conformidade</small>
+                        </a>
+                        <a href="certificacoes.html#premios" class="dropdown-item">
+                            <b>Prêmios</b>
+                            <small>Reconhecimento Mundial</small>
+                        </a>
+                        <a href="faq.html" class="dropdown-item">
+                            <b>FAQ</b>
+                            <small>Dúvidas Frequentes</small>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="https://neurotec.lojavirtuolpro.com/" class="btn-loja-nav" target="_blank">Loja</a></li>
             </ul>
         </nav>
     </header>
@@ -155,13 +209,13 @@
                     <div class="footer-logo">
                         <img src="foto 1.png" alt="Neurotec">
                     </div>
-                    <p>Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia clínica, fornecendo soluções de alta precisão.</p>
+                    <p>Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia clínica, fornecendo soluções de alta precisão para diagnósticos confiáveis.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navegação</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="https://neurotec.lojavirtuolpro.com/" class="btn-loja-nav" target="_blank">Loja</a></li>
                         <li><a href="sobre.html">Sobre a Empresa</a></li>
                         <li><a href="downloads.html">Downloads</a></li>
                         <li><a href="contato.html">Contato</a></li>

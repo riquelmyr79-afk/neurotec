@@ -18,13 +18,50 @@
         body { font-family: 'Poppins', sans-serif; color: #333; background-color: #fff; line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER FIXO */
-        .header-wrapper { position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: auto; z-index: 2000; }
-        .header-nav { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); padding: 10px 35px; border-radius: 50px; display: flex; align-items: center; gap: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); white-space: nowrap; }
-        .logo img { height: 35px; }
+        /* HEADER FIXO CENTRALIZADO */
+        .header-wrapper { 
+            position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: auto; z-index: 2000; 
+        }
+        .header-nav { 
+            background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); padding: 10px 35px; border-radius: 50px; 
+            display: flex; align-items: center; gap: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); white-space: nowrap;
+        }
+        .logo img { height: 35px; margin-right: 10px; }
         .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: #444; font-size: 13px; font-weight: 500; }
+        .nav-links a { text-decoration: none; color: #444; font-weight: 500; font-size: 13px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
+
+        /* DROP-DOWN INSTITUCIONAL ESTILO CARD */
+        .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
+        .dropdown-content {
+            position: absolute; 
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(20px);
+            background: white; 
+            min-width: 260px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            padding: 20px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+        }
+        .dropdown:hover .dropdown-content { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateX(-50%) translateY(10px); 
+        }
+        .dropdown-item { 
+            display: block; padding: 12px 15px; text-decoration: none; border-radius: 15px; transition: 0.2s; text-align: left;
+        }
+        .dropdown-item:hover { background: #f8fbff; }
+        .dropdown-item b { display: block; color: #333; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .dropdown-item small { display: block; color: #777; font-size: 12px; font-weight: 400; }
+        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
+        .dropdown:hover .seta { transform: rotate(180deg); }
 
         /* HERO */
         .hero-loja { background-color: var(--hero-blue); padding: 180px 0 80px 0; border-radius: 0 0 80px 80px; text-align: center; }
@@ -43,12 +80,10 @@
 
         /* LAYOUTS INTERNOS */
         .item-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
-        .item-row.software-layout { grid-template-columns: 0.35fr 0.65fr; gap: 50px; } /* Foto menor, Texto maior */
-        
+        .item-row.software-layout { grid-template-columns: 0.35fr 0.65fr; gap: 50px; }
         .item-row img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .img-stack { display: grid; gap: 15px; }
         .img-stack img { background: #f8fbff; border: 1px solid #eef2f6; padding: 10px; }
-
         .item-text h2 { font-size: 32px; color: var(--dark-blue); margin-bottom: 20px; }
         .item-text p { font-size: 16px; color: #555; margin-bottom: 15px; text-align: justify; }
         .item-text ul { list-style: none; margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -62,14 +97,13 @@
 
         /* FOOTER */
         .footer-premium { background-color: var(--footer-blue); color: #ffffff; padding: 80px 0 30px; border-radius: 60px 60px 0 0; margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; }
-        .footer-col h4 { color: #d1e3f8; margin-bottom: 25px; position: relative; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+        .footer-col h4 { color: #e1ecf7; font-size: 18px; font-weight: 600; margin-bottom: 25px; position: relative; }
         .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--tech-grad); }
         .footer-logo img { height: 40px; filter: brightness(0) invert(1); margin-bottom: 25px; }
-        .footer-info p { font-size: 14px; color: #c9d5e1; margin-bottom: 10px; }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; margin-top: 40px; display: flex; justify-content: space-between; font-size: 13px; color: #8c9dad; }
-        .coracao-footer { color: #e25555; animation: pulse 1.5s infinite; display: inline-block; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8c9dad; }
+        .coracao-footer { color: #e25555; animation: pulseFooter 1.5s infinite; display: inline-block; }
+        @keyframes pulseFooter { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
         @media (max-width: 900px) {
             .item-row, .item-row.software-layout, .suprimentos-layout { grid-template-columns: 1fr !important; text-align: center; }
@@ -90,8 +124,24 @@
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="certificacoes.html">Institucional</a></li>
-                <li><a href="produtos.html" class="btn-loja-nav">Loja</a></li>
+                <li class="dropdown">
+                    <a href="#" style="display: flex; align-items: center;">Institucional <span class="seta">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="certificacoes.html" class="dropdown-item">
+                            <b>Certificações</b>
+                            <small>ISO e Conformidade</small>
+                        </a>
+                        <a href="certificacoes.html#premios" class="dropdown-item">
+                            <b>Prêmios</b>
+                            <small>Reconhecimento Mundial</small>
+                        </a>
+                        <a href="faq.html" class="dropdown-item">
+                            <b>FAQ</b>
+                            <small>Dúvidas Frequentes</small>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="https://neurotec.lojavirtuolpro.com/" class="btn-loja-nav" target="_blank">Loja</a></li>
             </ul>
         </nav>
     </header>
@@ -109,7 +159,6 @@
     </section>
 
     <div class="container">
-        
         <div id="equipamentos" class="tab-content active">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
                 <div style="text-align: center; padding: 30px; border: 1px solid #eee; border-radius: 25px; transition: 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='#eee'">
@@ -138,7 +187,7 @@
                 </div>
                 <div class="item-text">
                     <h2>Softwares Neurotec®</h2>
-                    <p>A Neurotec® assumiu o compromisso de produzir equipamentos de nível mundial. Nossa busca pela excelência não se limita à produção, mas estende-se também ao desenvolvimento de softwares. Em sintonia com as novas tecnologias e contando com uma equipe interdisciplinar (Médicos, Engenheiros e Especialistas), desenvolvemos sistemas robustos para Neurofisiologia.</p>
+                    <p>A Neurotec® assumiu o compromisso de produzir equipamentos de nível mundial. Nossa busca pela excelência não se limita à produção, mas estende-se também ao desenvolvimento de softwares inteligentes.</p>
                     <p style="font-weight: 600; color: var(--primary); margin-top: 20px;">Oferecemos os seguintes softwares:</p>
                     <ul>
                         <li>EEG Digital Quantitativo</li>
@@ -150,10 +199,6 @@
                         <li>Monitoração com vídeo</li>
                         <li>Potenciais Evocados</li>
                     </ul>
-                    <div style="background: #f8fbff; padding: 20px; border-radius: 15px; border-left: 4px solid var(--primary);">
-                        <p style="margin-bottom: 5px; font-weight: 600; color: var(--dark-blue);">Acessórios Opcionais:</p>
-                        <p style="font-size: 13px; color: #777;">Foto-Estimulador LEDs, Áudio-Estimulador, Sensores para Polissonografia, Spliter e Oxímetro integrado.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -163,29 +208,21 @@
                 <img src="fotoestimu.png" alt="Foto Estimulador">
                 <div class="item-text">
                     <h2>Foto Estimulador</h2>
-                    <p>Utilizando tecnologia de LEDs brancos de alto brilho, aumentamos o rendimento e diminuímos o consumo. Conecta-se diretamente à porta USB do computador, não necessitando de rede elétrica. Possui vida útil superior às lâmpadas tradicionais.</p>
+                    <p>Utilizando tecnologia de LEDs brancos de alto brilho, aumentamos o rendimento e diminuímos o consumo energético.</p>
                 </div>
             </div>
             <div class="item-row" style="grid-template-columns: 1.2fr 0.8fr;">
                 <div class="item-text">
                     <h2>Interface USB EQSI240</h2>
-                    <p>Possibilita a atualização de equipamentos da linha EQSA240 com conversores padrão ISA para computadores modernos e velozes, utilizando a conexão USB estável.</p>
+                    <p>Possibilita a atualização de equipamentos da linha EQSA240 para computadores modernos via conexão USB.</p>
                 </div>
                 <img src="interface12.gif" alt="Interface USB">
-            </div>
-            <div class="item-row">
-                <img src="spliter.png" alt="Spliter">
-                <div class="item-text">
-                    <h2>Spliter® (Módulo Isolador)</h2>
-                    <p>Acessório essencial para ser utilizado com os equipamentos Neuromap® 40i e EQSA260 em ambientes desfavoráveis ao registro de sinais biológicos, garantindo pureza no sinal.</p>
-                </div>
             </div>
         </div>
 
         <div id="suprimentos" class="tab-content">
             <div class="suprimentos-layout">
                 <div>
-                    <p style="font-weight: 600; margin-bottom: 20px; color: var(--primary);">Nossa Linha de Suprimentos:</p>
                     <div class="grid-fotos-pequenas">
                         <img src="suprimentos-2.png"> <img src="suprimentos-4.png">
                         <img src="suprimentos-5.png"> <img src="suprimentos-6.png">
@@ -197,19 +234,17 @@
                 </div>
                 <div class="item-text" style="padding-top: 40px;">
                     <h2>Suprimentos Neurotec®</h2>
-                    <p>Produzimos uma linha completa de eletrodos, sensores e acessórios de altíssima qualidade. Os resultados dos exames dependem diretamente da qualidade dos insumos utilizados.</p>
-                    <p>Empregamos os mais modernos métodos na produção para garantir que cada componente atenda à demanda rigorosa da Neurofisiologia Clínica.</p>
+                    <p>Produzimos uma linha completa de eletrodos e sensores de altíssima qualidade para garantir precisão diagnóstica.</p>
                 </div>
             </div>
         </div>
-
     </div>
 
     <footer class="footer-premium">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo"><img src="foto 1.png"></div>
+                    <div class="footer-logo"><img src="foto 1.png" alt="Neurotec"></div>
                     <p style="color: #c9d5e1; font-size: 14px;">Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia clínica brasileira.</p>
                 </div>
                 <div class="footer-col">
@@ -223,7 +258,7 @@
                 </div>
                 <div class="footer-col">
                     <h4>Contato</h4>
-                    <div class="footer-info">
+                    <div class="footer-info" style="color: #c9d5e1; font-size: 14px;">
                         <p>📍 R. Cordilheira dos Andes, 200, Itajubá - MG</p>
                         <p>📞 +55 (35) 3623-2500</p>
                         <p>✉️ neurotec@neurotec.com.br</p>
@@ -231,7 +266,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>Copyright © 2026 <strong>NEUROTEC®</strong></p>
+                <p>Copyright © 2026 <strong>NEUROTEC®</strong>. Todos os direitos reservados.</p>
                 <p>Desenvolvido com <span class="coracao-footer">❤</span> para a Neurofisiologia</p>
             </div>
         </div>
