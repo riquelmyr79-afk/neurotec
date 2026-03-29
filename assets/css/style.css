@@ -927,126 +927,78 @@ body {
 }
 
 /* ==========================================================================
-   RODAPÉ (FOOTER) E RESPONSIVIDADE
+   NOVO RODAPÉ PREMIUM 
    ========================================================================== */
-.rodape-neurotec {
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 50px 0 20px 0;
-    margin-top: 60px;
+.footer-premium { 
+    background-color: var(--deep-blue); 
+    color: #ffffff; 
+    padding: 80px 0 30px; 
+    border-radius: 60px 60px 0 0; 
+    margin-top: 100px; 
 }
 
-.conteudo-rodape {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr 1fr; 
+    gap: 60px; 
 }
 
-.coluna-info-rodape {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
+.footer-col h4 { 
+    color: #d1e3f8; 
+    font-size: 18px; 
+    margin-bottom: 25px; 
+    position: relative; 
 }
 
-.linha-divisoria-rodape {
-    height: 1px;
-    background-color: #333;
-    margin: 20px 0;
+.footer-col h4::after { 
+    content: ''; 
+    position: absolute; 
+    left: 0; bottom: -8px; 
+    width: 30px; height: 2px; 
+    background: var(--tech-grad); 
 }
 
-.rodape-bottom {
-    text-align: center;
-    font-size: 13px;
-    color: #888;
+.footer-logo img { 
+    height: 40px; 
+    filter: brightness(0) invert(1); 
 }
 
-.coracao { color: #e25555; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { 
+    color: #c9d5e1; 
+    text-decoration: none; 
+    font-size: 14px; 
+    transition: 0.3s; 
+}
 
+.footer-links a:hover { color: #fff; padding-left: 5px; }
+
+.footer-bottom { 
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+    margin-top: 50px; 
+    padding-top: 30px; 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 13px; 
+    color: #8c9dad; 
+}
+
+/* ANIMAÇÃO DO CORAÇÃO */
+.coracao-footer { 
+    color: #e25555; 
+    animation: pulse 1.5s infinite; 
+    display: inline-block; 
+}
+
+@keyframes pulse { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.2); } 
+}
+
+/* RESPONSIVIDADE DO RODAPÉ */
 @media (max-width: 900px) {
-    .secao-1-sede-neurotec, 
-    .secao-2-historia-fundador { flex-direction: column; }
-    .secao-valores-sobre { grid-template-columns: 1fr; }
-    .conteudo-rodape { flex-direction: column; text-align: center; gap: 30px; }
-    .header-pilula { flex-direction: column; border-radius: 15px; gap: 15px; }
-}
-
-/* ==========================================================================
-   RODAPÉ (FOOTER)
-   ========================================================================== */
-.rodape-neurotec {
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 50px 0 20px 0;
-    margin-top: 60px;
-}
-
-.conteudo-rodape {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.coluna-logo-rodape img {
-    height: 40px;
-    filter: brightness(0) invert(1); /* Deixa a logo branca, caso a original seja escura */
-}
-
-.coluna-info-rodape {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.info-rodape-item p {
-    font-size: 13px;
-    color: #b3b3b3;
-}
-
-.linha-divisoria-rodape {
-    height: 1px;
-    background-color: #333;
-    margin: 20px 0;
-}
-
-.rodape-bottom {
-    text-align: center;
-    font-size: 13px;
-    color: #888;
-}
-
-.coracao {
-    color: #e25555;
-}
-
-/* ==========================================================================
-   RESPONSIVIDADE (Telas menores e Celulares)
-   ========================================================================== */
-@media (max-width: 900px) {
-    .secao-1-sede-neurotec, 
-    .secao-2-historia-fundador {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .secao-valores-sobre {
-        grid-template-columns: 1fr;
-    }
-    
-    .conteudo-rodape {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-    
-    .coluna-info-rodape {
-        justify-content: center;
-    }
-    
-    .header-pilula {
-        flex-direction: column;
-        border-radius: 15px;
-        gap: 15px;
-    }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
 }
