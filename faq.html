@@ -3,30 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Perguntas Frequentes - Neurotec</title>
+    <title>FAQ - Neurotec</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0056b3;
-            --tech-grad: linear-gradient(90deg, #007cf0, #00dfd8);
-            --hero-blue: #b5d1f0;
+            --solid-blue: #0066cc; 
+            --hero-blue: #d1e3f8;
             --dark-blue: #002244;
-            --deep-blue: #001a33;
             --white: #ffffff;
-            --danger: #e25555;
+            --footer-blue: #001a33;
             --grid-size: 30px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER FIXO CENTRALIZADO COM DROPDOWN CORRIGIDO */
-        .header-wrapper { position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: auto; z-index: 2000; }
+        /* HEADER */
+        .header-wrapper { 
+            position: fixed; 
+            top: 25px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: auto; 
+            z-index: 2000; 
+        }
         .header-nav { 
-            background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); 
-            padding: 10px 35px; border-radius: 50px; display: flex; align-items: center; 
-            gap: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.96); 
+            backdrop-filter: blur(12px); 
+            padding: 10px 35px; 
+            border-radius: 50px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(255,255,255,0.5);
             white-space: nowrap;
         }
         .logo img { height: 35px; margin-right: 10px; }
@@ -35,45 +47,85 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* DROP-DOWN INSTITUCIONAL ESTILO CARD (IGUAL A HOME) */
-        .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
-        .dropdown-content {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px);
-            background: white; min-width: 260px; border-radius: 25px; box-shadow: 0 15px 45px rgba(0,0,0,0.12);
-            padding: 20px; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: 3000;
-        }
-        .dropdown:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
-        .dropdown-item { display: block; padding: 12px 15px; text-decoration: none; border-radius: 15px; transition: 0.2s; text-align: left; }
-        .dropdown-item:hover { background: #f8fbff; }
-        .dropdown-item b { display: block; color: #333; font-size: 14px; font-weight: 700; }
-        .dropdown-item small { display: block; color: #777; font-size: 11px; }
-        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
-        .dropdown:hover .seta { transform: rotate(180deg); }
-
-        /* HERO FAQ */
-        .faq-hero {
+        /* HERO FAQ - PADRONIZADO */
+        .hero-faq {
             background-color: var(--hero-blue);
-            background-image: linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
             background-size: var(--grid-size) var(--grid-size);
-            padding: 180px 0 100px 0; border-radius: 0 0 80px 80px; text-align: center;
+            padding: 180px 0 100px 0;
+            border-radius: 0 0 80px 80px;
+            text-align: center;
         }
-        .faq-hero h1 { font-size: 52px; color: var(--dark-blue); font-weight: 700; }
-        .faq-hero h1 span { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-faq h1 { 
+            font-size: 52px; 
+            color: var(--dark-blue); /* Alterado para Azul Escuro */
+            font-weight: 700; 
+            margin-bottom: 20px; 
+        }
+        .hero-faq h1 span { 
+            color: var(--primary); /* Azul de Destaque */
+        }
+        .hero-faq p { font-size: 18px; color: #5a6f85; max-width: 600px; margin: 0 auto; }
 
-        /* ESTILO DAS NOTAS E ACORDEÕES */
-        .notas-fixas { background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 15px 45px rgba(0,0,0,0.05); margin: -50px auto 60px; position: relative; z-index: 10; border-left: 8px solid var(--danger); }
-        .topico-bloco { margin-bottom: 25px; border-radius: 20px; border: 1px solid #eee; overflow: hidden; background: #fff; }
-        .topico-mestre summary { padding: 25px 35px; font-size: 18px; font-weight: 700; color: var(--dark-blue); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: #fcfdfe; }
-        .topico-mestre summary::after { content: '↓'; color: var(--primary); transition: 0.3s; }
-        .topico-mestre[open] summary::after { transform: rotate(180deg); }
-        .pergunta-bloco { margin: 10px 35px; border-bottom: 1px solid #f1f1f1; }
-        .pergunta-bloco summary { padding: 18px 0; font-size: 16px; font-weight: 600; color: var(--primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; }
-        .resposta { padding: 0 0 25px; color: #555; font-size: 15px; white-space: pre-line; }
+        /* ACCORDION FAQ */
+        .faq-section { padding: 80px 0; }
+        .faq-item {
+            background: #f9fbff;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #eef2f7;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: 17px;
+        }
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #555;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .faq-item.active { border-color: var(--primary); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .faq-item.active .faq-answer { padding-bottom: 25px; max-height: 300px; }
+        .faq-icon { color: var(--primary); font-size: 20px; transition: 0.3s; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
 
         /* FOOTER */
-        .footer-premium { background-color: var(--deep-blue); color: #ffffff; padding: 70px 0 30px; border-radius: 60px 60px 0 0; margin-top: 80px; text-align: center; }
-        .footer-links { list-style: none; display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
-        .footer-links a { color: #c9d5e1; text-decoration: none; font-size: 14px; }
+        .footer-premium {
+            background-color: var(--footer-blue);
+            color: #ffffff;
+            padding: 80px 0 30px;
+            border-radius: 60px 60px 0 0;
+            margin-top: 50px;
+        }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+        .footer-col h4 { color: #e1ecf7; font-size: 18px; font-weight: 600; margin-bottom: 25px; position: relative; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--solid-blue); }
+        .footer-logo img { height: 40px; filter: brightness(0) invert(1); margin-bottom: 25px; display: block; }
+        .footer-links { list-style: none; }
+        .footer-links a { color: #c9d5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-links a:hover { color: #fff; padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8c9dad; }
+
+        @media (max-width: 768px) {
+            .hero-faq h1 { font-size: 36px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+            .footer-bottom { flex-direction: column; gap: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -96,124 +148,29 @@
     </nav>
 </header>
 
-    <section class="faq-hero">
-        <div class="container">
-            <h1>Perguntas <span>Frequentes</span></h1>
-            <p>Caso sua dúvida não esteja listada, entre em contato conosco.</p>
-        </div>
-    </section>
-
+<section class="hero-faq">
     <div class="container">
-        <div class="notas-fixas">
-            <p>Obs. 1: Não reinstale nem permita a reinstalação do sistema sem antes consultar o suporte técnico da Neurotec®.</p>
-            <p>Obs. 2: A maior parte das dúvidas e problemas pode ser esclarecida consultando os Manuais que acompanham o produto.</p>
-            <p>Obs. 3: O plug da tomada do seu computador, seja ele desktop ou notebook, precisa OBRIGATORIAMENTE conter 3 pinos para que o equipamento funcione corretamente.</p>
-            <p>Obs. 4: Pelo menos um eletrodo de referência DEVERÁ ser colocado no paciente em TODOS os exames! Sugere-se no EEG o uso de 2 eletrodos de referência.</p>
-            <p>Obs. 5: O aterramento deverá ser feito pelo cliente, de acordo com a especificação sugerida neste modelo, exclusivamente para o equipamento.</p>
-        </div>
-
-        <div class="topico-bloco">
-            <details class="topico-mestre">
-                <summary>BACKUP E RESTAURAÇÃO DE ARQUIVOS</summary>
-                
-                <details class="pergunta-bloco">
-                    <summary>Consigo fazer um backup de arquivo em um Pendrive?</summary>
-                    <div class="resposta">Verifique o funcionamento do dispositivo que você está tentando usar para fazer o backup dos arquivos. Faça testes com outros programas de gravação. Se houver problemas solicite auxílio do seu Técnico em Informática.</div>
-                </details>
-
-                <details class="pergunta-bloco">
-                    <summary>Como eu faço para restaurar os arquivos do Neuromap?</summary>
-                    <div class="resposta">Utilizando as versões do Neuromap com Windows XP ou superior:
-1. entre no programa Neuromap;
-2. na tela principal selecione no menu Arquivo -> transferir -> Exames;
-3. no quadro que aparece, selecione a origem dos arquivos (CD, DVD, Pendrive…) e marque os exames que serão copiados;
-4. em seguida no destino da copia, selecione a pasta de exames do Neuromap;
-5. pressione o botão Transferir.
-
-Utilizando as versões do Neuromap com Windows 98:
-1. entre no Windows Explorer;
-2. selecione a origem dos arquivos (CD, DVD, Pendrive…);
-3. marque os exames que serão copiados;
-4. abra a pasta Neurowin/exames;
-5. arraste os arquivos para a pasta;
-6. remova o atributo “somente leitura” dos arquivos;
-7. selecione a origem dos arquivos (CD, DVD, Pendrive…);
-8. marque os arquivos ficha.dat e analise.dat;
-9. abra a pasta Neuromap/Dados;
-10. arraste os arquivos para a pasta;
-11. remova o atributo “somente leitura” dos arquivos.
-
-Caso não consiga realizar a restauração de arquivos, solicite auxílio do seu Técnico em Informática;</div>
-                </details>
-
-                <details class="pergunta-bloco">
-                    <summary>Em quais tipos de mídia posso fazer Backup de exames?</summary>
-                    <div class="resposta">O programa Neuromap pode fazer backup direto em mídias do tipo R/W (CD R/W, DVD R/W, Pendrive, etc). O Neuromap não faz backup direto em mídias do tipo R (somente leitura); neste caso, utilize os programas de gravação que acompanham o gravador.</div>
-                </details>
-            </details>
-        </div>
-
-        <div class="topico-bloco">
-            <details class="topico-mestre">
-                <summary>CONFIGURAÇÃO DE REDE</summary>
-                <div style="padding: 20px 35px; font-size: 14px; color: #666;">O Neuromap pode ser utilizado em rede com um computador gravando exames e outro fazendo laudos. Para funcionar corretamente é necessário que a rede esteja funcionando adequadamente. Para lhe auxiliar com a instalação e configuração da rede, entre em contato com o seu Técnico de Informática.</div>
-                <details class="pergunta-bloco">
-                    <summary>Consigo abrir exames para fazer análise em uma rede?</summary>
-                    <div class="resposta">Verifique no ambiente de rede do computador se é possível o acesso às unidades de rede e se o computador em que estão os exames está disponível. Se a rede não estiver com funcionamento normal ou não for possível acessar o computador de exames, solicite auxílio do técnico em informática responsável pela rede.</div>
-                </details>
-                <details class="pergunta-bloco">
-                    <summary>Como eu faço para configurar o Neuromap para fazer análise em uma rede?</summary>
-                    <div class="resposta">Siga os passos abaixo:
-1. Instale o programa Neuromap no computador de gravação de exames;
-2. Para definir e configurar da melhor forma possível o compartilhamento e consequentemente o caminho para acessá-lo, chame um técnico de sua confiança. No computador de análise, peça para o técnico fazer o mapeamento do compartilhamento do computador de exames;
-3. No computador de análise, instale o programa Neuromap;
-4. No computador de análise, entre no programa Neuromap. Selecione no menu a opção: configurações programa pastas, ou configurações arquivos/pastas. Troque a letra da unidade C: pela unidade mapeada nas opções referentes a ‘Exames’, ‘Dados’, ‘Telas’ e ‘Laudos’.</div>
-                </details>
-            </details>
-        </div>
-
-        <div class="topico-bloco">
-            <details class="topico-mestre">
-                <summary>ELETRODOS</summary>
-                <div style="padding: 20px 35px; font-size: 14px; color: #666;">Eletrodos são considerados materiais de consumo. A duração destes materiais depende da frequência de uso e cuidados com a sua conservação. Após apresentarem problemas, devem ser prontamente substituídos e descartados. Mantenha sempre uma reserva para substituição oportuna.</div>
-                <details class="pergunta-bloco">
-                    <summary>Como faço para conservar os eletrodos?</summary>
-                    <div class="resposta">Após o uso, lave os eletrodos em água corrente para retirar a pasta impregnada, esfregando-os com uma escova macia. Seque-os, e os mantenha apoiados na maca ou cadeira utilizada para fazer exame. Nunca deixe os eletrodos de molho na água de um dia para o outro. Isto diminui consideravelmente a vida útil do eletrodo.</div>
-                </details>
-                <details class="pergunta-bloco">
-                    <summary>Qual é o tipo de eletrodo que posso utilizar com o Neuromap?</summary>
-                    <div class="resposta">Com o equipamento Neuromap podem ser utilizados os eletrodos do tipo de estanho, ouro, prata e cloridrato de prata (prata clorada), mas atenção, não misture eletrodos de tipos diferentes, pois o conjunto de eletrodos de tipos diferentes e misturados, geram artefatos na captação do exame.</div>
-                </details>
-            </details>
-        </div>
-
-        <div class="topico-bloco">
-            <details class="topico-mestre">
-                <summary>EQUIPAMENTO NÃO INICIA A CAPTAÇÃO</summary>
-                <details class="pergunta-bloco">
-                    <summary>Erro de inicialização do Sistema USB?</summary>
-                    <div class="resposta">Faça as seguintes verificações:
-1. Verifique se o cabo USB está conectado ao computador e ao equipamento.
-2. Troque a entrada (Porta) do cabo USB no computador. 
-3. Troque o cabo USB por outro.
-4. Verifique se o programa foi instalado corretamente no computador.
-5. Tente instalar o equipamento em outro computador.
-6. Se o problema não for resolvido, entre em contato com o suporte técnico da Neurotec.</div>
-                </details>
-            </details>
-        </div>
-
-        <div class="topico-bloco">
-            <details class="topico-mestre">
-                <summary>INSTALAÇÃO (WINDOWS 8, 8.1 E 10)</summary>
-                <details class="pergunta-bloco">
-                    <summary>Como faço para instalar os drivers?</summary>
-                    <div class="resposta">Para realizar a instalação dos drivers a partir do Windows® 8, se faz necessário Desabilitar a Imposição de Assinatura de Drivers.
-1. Vá em Configurações -> Atualização e Segurança -> Recuperação -> Inicialização avançada -> Reiniciar Agora.</div>
-                </details>
-            </details>
-        </div>
+        <h1>Perguntas <span>Frequentes</span></h1>
+        <p>Encontre respostas rápidas sobre nossos equipamentos, suporte técnico e processos de aquisição.</p>
     </div>
+</section>
+
+<div class="container faq-section">
+    <div class="faq-item">
+        <div class="faq-question">Como solicito suporte técnico? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Você pode solicitar suporte através da nossa página de contato, enviando um e-mail para suporte@neurotec.com.br ou ligando diretamente para nossa central em Itajubá.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Os equipamentos possuem certificação ANVISA? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Sim, todos os nossos produtos são rigorosamente testados e possuem registro ativo na ANVISA, além de certificações internacionais como ISO 9001 e ISO 13485.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Onde encontro os drivers para download? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Todos os drivers e manuais atualizados estão disponíveis na nossa aba dedicada de "Downloads" aqui no site oficial.</div>
+    </div>
+</div>
 
 <footer class="footer-premium">
     <div class="container">
@@ -223,32 +180,36 @@ Caso não consiga realizar a restauração de arquivos, solicite auxílio do seu
                 <p style="font-size: 13px; color: #c9d5e1; margin-top: 15px;">Líder em tecnologia de neurofisiologia clínica há mais de 30 anos.</p>
             </div>
             <div class="footer-col">
-                <h4>Navegação</h4>
+                <h4>Institucional</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="certificacoes.html">Institucional</a></li>
-                    <li><a href="https://neurotec.lojavirtuolpro.com/" target="_blank">Loja</a></li>
+                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                    <li><a href="certificacoes.html">Certificações</a></li>
+                    <li><a href="contato.html">Localização</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Contato</h4>
+                <h4>Atendimento</h4>
                 <div style="font-size: 14px; color: #c9d5e1;">
                     <p>📍 Itajubá - MG</p>
-                    <p style="margin: 10px 0;">📞 +55 (35) 3623-2500</p>
-                    <p>✉️ neurotec@neurotec.com.br</p>
+                    <p>📞 +55 (35) 3623-2500</p>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>Copyright © 2026 <strong>NEUROTEC®</strong></p>
-            <p>Desenvolvido com <span class="coracao-footer">❤</span></p>
+            <p>Desenvolvido com ❤</p>
         </div>
     </div>
 </footer>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -9,7 +9,7 @@
     <style>
         :root {
             --primary: #0056b3;
-            --tech-grad: linear-gradient(90deg, #007cf0, #00dfd8);
+            --solid-blue: #0066cc; /* Novo azul sólido definido */
             --hero-blue: #b5d1f0; 
             --dark-blue: #002244;
             --deep-blue: #001a33;
@@ -35,21 +35,6 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* DROP-DOWN INSTITUCIONAL */
-        .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
-        .dropdown-content {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px);
-            background: white; min-width: 260px; border-radius: 25px; box-shadow: 0 15px 45px rgba(0,0,0,0.12);
-            padding: 20px; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: 3000;
-        }
-        .dropdown:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
-        .dropdown-item { display: block; padding: 12px 15px; text-decoration: none; border-radius: 15px; transition: 0.2s; text-align: left; }
-        .dropdown-item:hover { background: #f8fbff; }
-        .dropdown-item b { display: block; color: #333; font-size: 14px; font-weight: 700; }
-        .dropdown-item small { display: block; color: #777; font-size: 11px; }
-        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
-        .dropdown:hover .seta { transform: rotate(180deg); }
-
         /* HERO HOME */
         .hero-home { 
             background-color: var(--hero-blue);
@@ -64,7 +49,9 @@
         .hero-flex { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .hero-text { flex: 1; }
         .hero-text h1 { font-size: 52px; color: var(--dark-blue); font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
-        .hero-text h1 span.color { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* COR DA FONTE AJUSTADA PARA AZUL SÓLIDO */
+        .hero-text h1 span.color { color: var(--solid-blue); }
         
         /* CARROSSEL HERO */
         .hero-img-container { flex: 1.2; position: relative; display: flex; align-items: center; justify-content: center; min-height: 450px; }
@@ -145,7 +132,7 @@
     <section class="hero-home">
         <div class="container hero-flex">
             <div class="hero-text">
-                <span style="color: var(--primary); font-weight: 600; font-size: 14px; margin-bottom: 10px; display: block;">+30 anos de excelência em neurofisiologia</span>
+                <span style="color: var(--solid-blue); font-weight: 600; font-size: 14px; margin-bottom: 10px; display: block;">+30 anos de excelência em neurofisiologia</span>
                 <h1>Tecnologia de<br><span class="color">Neurofisiologia</span><br><span class="color">Clínica</span></h1>
                 <p>Equipamentos com certificação internacional. Diagnósticos mais rápidos e confiáveis.</p>
             </div>
@@ -300,7 +287,6 @@
             showSlide(currentSlide);
         }
 
-        // Auto play opcional
         setInterval(nextSlide, 6000);
     </script>
 

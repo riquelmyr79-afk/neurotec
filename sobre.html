@@ -9,18 +9,19 @@
     <style>
         :root {
             --primary: #0056b3;
-            --tech-grad: linear-gradient(90deg, #007cf0, #00dfd8);
-            --hero-blue: #d1e3f8;
+            --solid-blue: #0066cc; 
+            --hero-blue: #b5d1f0;  
             --dark-blue: #002244;
             --white: #ffffff;
             --footer-blue: #001a33;
+            --grid-size: 30px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER FIXO CENTRALIZADO */
+        /* HEADER */
         .header-wrapper { 
             position: fixed; 
             top: 25px; 
@@ -45,61 +46,28 @@
         .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: #444; font-weight: 500; font-size: 13px; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
-        
-        /* BOTÃO LOJA (LINK EXTERNO) */
-        .btn-loja-nav { 
-            background: var(--primary); 
-            color: white !important; 
-            padding: 8px 22px; 
-            border-radius: 20px; 
-            font-weight: 600 !important; 
-        }
+        .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* DROP-DOWN INSTITUCIONAL ESTILO CARD (IGUAL À FOTO) */
-        .dropdown { position: relative; cursor: pointer; display: flex; align-items: center; }
-        .dropdown-content {
-            position: absolute; 
-            top: 100%; 
-            left: 50%; 
-            transform: translateX(-50%) translateY(20px);
-            background: white; 
-            min-width: 260px; 
-            border-radius: 25px; 
-            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
-            padding: 20px; 
-            opacity: 0; 
-            visibility: hidden; 
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            z-index: 3000;
-        }
-        .dropdown:hover .dropdown-content { 
-            opacity: 1; 
-            visibility: visible; 
-            transform: translateX(-50%) translateY(10px); 
-        }
-        .dropdown-item { 
-            display: block; 
-            padding: 12px 15px; 
-            text-decoration: none; 
-            border-radius: 15px; 
-            transition: 0.2s; 
-            text-align: left;
-        }
-        .dropdown-item:hover { background: #f8fbff; }
-        .dropdown-item b { display: block; color: #333; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-        .dropdown-item small { display: block; color: #777; font-size: 12px; font-weight: 400; }
-        .seta { color: var(--primary); font-size: 10px; margin-left: 6px; transition: 0.3s; }
-        .dropdown:hover .seta { transform: rotate(180deg); }
-
-        /* HERO - TEMA AZUL REFINADO */
+        /* HERO - AJUSTE DE COR NO TÍTULO */
         .hero-sobre {
             background-color: var(--hero-blue);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+            background-size: var(--grid-size) var(--grid-size);
             padding: 180px 0 100px 0;
             border-radius: 0 0 80px 80px;
             text-align: center;
         }
-        .hero-sobre h1 { font-size: 52px; color: var(--dark-blue); font-weight: 700; margin-bottom: 20px; }
-        .hero-sobre h1 span { background: var(--tech-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-sobre h1 { 
+            font-size: 52px; 
+            color: var(--dark-blue); /* Cor principal do título */
+            font-weight: 700; 
+            margin-bottom: 20px; 
+        }
+        .hero-sobre h1 span { 
+            color: var(--primary); /* Destaque em azul vibrante */
+        }
         .hero-sobre p { font-size: 18px; color: #5a6f85; max-width: 700px; margin: 0 auto 40px; }
 
         .botoes-sobre-destaque { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
@@ -110,7 +78,7 @@
         }
         .btn-elegante:hover { background: var(--primary); color: white; transform: translateY(-3px); }
 
-        /* SEÇÕES DE CONTEÚDO */
+        /* SEÇÕES */
         .secao-layout { display: flex; align-items: center; gap: 60px; padding: 100px 0; }
         .secao-layout.reverse { flex-direction: row-reverse; }
         .texto-content { flex: 1; }
@@ -134,7 +102,7 @@
         .valor-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-color: var(--primary); }
         .valor-card h3 { color: var(--dark-blue); margin-bottom: 15px; font-size: 22px; }
 
-        /* RODAPÉ PREMIUM */
+        /* FOOTER */
         .footer-premium {
             background-color: var(--footer-blue);
             color: #ffffff;
@@ -146,14 +114,14 @@
         }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
         .footer-col h4 { color: #e1ecf7; font-size: 18px; font-weight: 600; margin-bottom: 25px; position: relative; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--tech-grad); }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--solid-blue); }
         .footer-logo img { height: 40px; filter: brightness(0) invert(1); margin-bottom: 25px; display: block; }
-        .footer-info p { font-size: 14px; color: #c9d5e1; line-height: 1.8; margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
         .footer-links { list-style: none; }
         .footer-links a { color: #c9d5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
         .footer-links a:hover { color: #fff; padding-left: 5px; }
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8c9dad; }
         .coracao-footer { color: #e25555; animation: pulseFooter 1.5s infinite; display: inline-block; }
+        
         @keyframes pulseFooter { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
         @media (max-width: 900px) {
@@ -200,15 +168,13 @@
     </section>
 
     <div class="container">
-        
         <section class="secao-layout">
             <div class="foto-content">
                 <img src="sede.png" alt="Sede Neurotec" class="img-premium">
             </div>
             <div class="texto-content">
                 <h2>A Neurotec®</h2>
-                <p>Em conformidade às políticas de qualidade, a Neurotec® pesquisa e desenvolve produtos de nível internacional, buscando sempre o melhor resultado clínico. Mantemos um corpo de pesquisadores altamente qualificados que encontram amplo suporte em nossos usuários.</p>
-                <p>Ao criar o NEUROMAP®, combinamos o que há de mais avançado em tecnologia DSP para disponibilizar o primeiro equipamento de EEG Digital com Mapeamento Cerebral para o mercado brasileiro.</p>
+                <p>Em conformidade às políticas de qualidade, a Neurotec® pesquisa e desenvolve produtos de nível internacional, buscando sempre o melhor resultado clínico.</p>
             </div>
         </section>
 
@@ -216,29 +182,13 @@
             <div class="foto-content fundador-wrapper">
                 <img src="fundador.png" alt="Luiz Calistro Balestrassi" class="img-premium">
                 <div class="info-fundador">
-                    <h3 style="font-size: 18px;">Luiz Calistro Balestrassi</h3>
-                    <p style="font-size: 14px; color: #888;">Fundador / Presidente</p>
+                    <h3>Luiz Calistro Balestrassi</h3>
+                    <p>Fundador / Presidente</p>
                 </div>
             </div>
             <div class="texto-content">
                 <h2>Nossa História</h2>
-                <p>Fundada em 1985, a Neurotec nasceu com o compromisso de produzir equipamentos de nível mundial que fossem acessíveis e atuassem em favor da melhoria da qualidade de vida.</p>
-                <p>Nossa busca de excelência não se limita à produção, mas estende-se a uma política de respeito ao meio ambiente e valorização de nossos colaboradores e parceiros.</p>
-            </div>
-        </section>
-
-        <section class="grid-valores">
-            <div class="valor-card">
-                <h3>Nossa Missão</h3>
-                <p>Fornecer soluções tecnológicas inovadoras em diagnóstico neurológico, contribuindo para a saúde global.</p>
-            </div>
-            <div class="valor-card">
-                <h3>Nossa Visão</h3>
-                <p>Ser a empresa líder em tecnologia de EEG de alta resolução, reconhecida pela excelência e inovação constante.</p>
-            </div>
-            <div class="valor-card">
-                <h3>Nossos Valores</h3>
-                <p>Inovação, Qualidade Superior, Ética Profissional e Compromisso com a precisão diagnóstica.</p>
+                <p>Fundada em 1985, a Neurotec nasceu com o compromisso de produzir equipamentos de nível mundial acessíveis.</p>
             </div>
         </section>
     </div>
@@ -248,27 +198,20 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="footer-logo"><img src="foto 1.png" alt="Neurotec"></div>
-                <p style="font-size: 13px; color: #c9d5e1; margin-top: 15px;">Líder em tecnologia de neurofisiologia clínica há mais de 30 anos.</p>
+                <p>Líder em neurofisiologia clínica há mais de 30 anos.</p>
             </div>
             <div class="footer-col">
                 <h4>Navegação</h4>
                 <ul class="footer-links">
                     <li><a href="index.html">Início</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="contato.html">Contato</a></li>
-                    <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="certificacoes.html">Institucional</a></li>
-                    <li><a href="https://neurotec.lojavirtuolpro.com/" target="_blank">Loja</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Contato</h4>
-                <div style="font-size: 14px; color: #c9d5e1;">
-                    <p>📍 Itajubá - MG</p>
-                    <p style="margin: 10px 0;">📞 +55 (35) 3623-2500</p>
-                    <p>✉️ neurotec@neurotec.com.br</p>
-                </div>
+                <p>📍 Itajubá - MG</p>
+                <p>📞 +55 (35) 3623-2500</p>
             </div>
         </div>
         <div class="footer-bottom">
