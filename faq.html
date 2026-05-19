@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,9 @@
             --white: #ffffff;
             --footer-blue: #001a33;
             --grid-size: 30px;
+            --warning-amber: #fff3cd;
+            --warning-border: #ffeeba;
+            --warning-text: #856404;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,7 +50,7 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* HERO FAQ - PADRONIZADO */
+        /* HERO FAQ */
         .hero-faq {
             background-color: var(--hero-blue);
             background-image: 
@@ -60,17 +63,69 @@
         }
         .hero-faq h1 { 
             font-size: 52px; 
-            color: var(--dark-blue); /* Alterado para Azul Escuro */
+            color: var(--dark-blue); 
             font-weight: 700; 
             margin-bottom: 20px; 
         }
-        .hero-faq h1 span { 
-            color: var(--primary); /* Azul de Destaque */
-        }
+        .hero-faq h1 span { color: var(--primary); }
         .hero-faq p { font-size: 18px; color: #5a6f85; max-width: 600px; margin: 0 auto; }
+
+        /* NOTICES & INTRO */
+        .faq-intro-text {
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .faq-notices {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--solid-blue);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .faq-notices h3 {
+            color: var(--dark-blue);
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .faq-notices ul {
+            list-style: none;
+        }
+        .faq-notices li {
+            font-size: 14px;
+            color: #495057;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .faq-notices li strong {
+            color: #c53030;
+        }
 
         /* ACCORDION FAQ */
         .faq-section { padding: 80px 0; }
+        .faq-topic-title {
+            color: var(--dark-blue);
+            font-size: 22px;
+            font-weight: 700;
+            margin: 45px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eef2f7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .faq-topic-title:first-of-type { margin-top: 0; }
+        .faq-topic-desc {
+            font-size: 14px;
+            color: #666;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
         .faq-item {
             background: #f9fbff;
             border-radius: 20px;
@@ -80,14 +135,15 @@
             transition: 0.3s;
         }
         .faq-question {
-            padding: 25px 30px;
+            padding: 22px 30px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
             color: var(--dark-blue);
-            font-size: 17px;
+            font-size: 16px;
+            user-select: none;
         }
         .faq-answer {
             padding: 0 30px;
@@ -98,8 +154,13 @@
             font-size: 15px;
             line-height: 1.8;
         }
+        .faq-answer ol, .faq-answer ul {
+            margin: 15px 0 15px 20px;
+        }
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
         .faq-item.active { border-color: var(--primary); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .faq-item.active .faq-answer { padding-bottom: 25px; max-height: 300px; }
         .faq-icon { color: var(--primary); font-size: 20px; transition: 0.3s; }
         .faq-item.active .faq-icon { transform: rotate(45deg); }
 
@@ -122,6 +183,8 @@
 
         @media (max-width: 768px) {
             .hero-faq h1 { font-size: 36px; }
+            .faq-question { padding: 18px 20px; font-size: 15px; }
+            .faq-answer { padding: 0 20px; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer-col h4::after { left: 50%; transform: translateX(-50%); }
             .footer-bottom { flex-direction: column; gap: 20px; }
@@ -139,7 +202,7 @@
             <li><a href="index.html">Início</a></li>
             <li><a href="produtos.html">Produtos</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="sobre.html">A Empresa</a></li>
+            <li><a href="sobre.html">Empresa</a></li>
             <li><a href="certificacoes.html">Certificações</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
@@ -151,25 +214,349 @@
 <section class="hero-faq">
     <div class="container">
         <h1>Perguntas <span>Frequentes</span></h1>
-        <p>Encontre respostas rápidas sobre nossos equipamentos, suporte técnico e processos de aquisição.</p>
+        <p>Encontre respostas rápidas sobre nossos equipamentos, suporte técnico e processos de operação.</p>
     </div>
 </section>
 
 <div class="container faq-section">
+    
+    <p class="faq-intro-text">
+        Foram selecionados os questionamentos mais comuns entre os usuários, respondidos e disponibilizados abaixo.<br>
+        Caso sua dúvida não esteja listada, <a href="contato.html" style="color: var(--primary); font-weight: 500;">entre em contato conosco</a>.
+    </p>
+
+    <div class="faq-notices">
+        <h3>💡 Recomendações Importantes</h3>
+        <ul>
+            <li>📌 <strong>Obs. 1:</strong> Não reinstale nem permita a reinstalação do sistema sem antes consultar o suporte técnico da Neurotec®.</li>
+            <li>📌 <strong>Obs. 2:</strong> A maior parte das dúvidas e problemas pode ser esclarecida consultando os Manuais que acompanham o produto.</li>
+            <li>📌 <strong>Obs. 3:</strong> O plug da tomada do seu computador, seja ele desktop ou notebook, precisa <strong>OBRIGATORIAMENTE</strong> conter 3 pinos para que o equipamento funcione corretamente.</li>
+            <li>📌 <strong>Obs. 4:</strong> Pelo menos um eletrodo de referência <strong>DEVERÁ</strong> ser colocado no paciente em <strong>TODOS</strong> os exames! Sugere-se no EEG o uso de 2 eletrodos de referência.</li>
+            <li>📌 <strong>Obs. 5:</strong> O aterramento deverá ser feito pelo cliente, de acordo com a especificação sugerida neste modelo, exclusivamente para o equipamento.</li>
+        </ul>
+    </div>
+
+    <h2 class="faq-topic-title">1. Backup e Restauração de Arquivos</h2>
+    
     <div class="faq-item">
-        <div class="faq-question">Como solicito suporte técnico? <span class="faq-icon">+</span></div>
-        <div class="faq-answer">Você pode solicitar suporte através da nossa página de contato, enviando um e-mail para suporte@neurotec.com.br ou ligando diretamente para nossa central em Itajubá.</div>
+        <div class="faq-question">Consigo fazer um backup de arquivo em um Pendrive? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Verifique o funcionamento do dispositivo que você está tentando usar para fazer o backup dos arquivos. Faça testes com outros programas de gravação. Se houver problemas, solicite auxílio do seu Técnico em Informática.</p>
+        </div>
     </div>
 
     <div class="faq-item">
-        <div class="faq-question">Os equipamentos possuem certificação ANVISA? <span class="faq-icon">+</span></div>
-        <div class="faq-answer">Sim, todos os nossos produtos são rigorosamente testados e possuem registro ativo na ANVISA, além de certificações internacionais como ISO 9001 e ISO 13485.</div>
+        <div class="faq-question">Como eu faço para restaurar os arquivos do Neuromap? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p><strong>Utilizando as versões do Neuromap com Windows XP ou superior:</strong></p>
+            <ol>
+                <li>Entre no programa Neuromap;</li>
+                <li>Na tela principal, selecione no menu Arquivo -> Transferir -> Exames;</li>
+                <li>No quadro que aparece, selecione a origem dos arquivos (CD, DVD, Pendrive…) e marque os exames que serão copiados;</li>
+                <li>Em seguida, no destino da cópia, selecione a pasta de exames do Neuromap;</li>
+                <li>Pressione o botão Transferir.</li>
+            </ol>
+            <p><strong>Utilizando as versões do Neuromap com Windows 98:</strong></p>
+            <ol>
+                <li>Entre no Windows Explorer;</li>
+                <li>Selecione a origem dos arquivos (CD, DVD, Pendrive…);</li>
+                <li>Marque os exames que serão copiados;</li>
+                <li>Abra a pasta Neurowin/exames;</li>
+                <li>Arraste os arquivos para a pasta;</li>
+                <li>Remova o atributo "somente leitura" dos arquivos;</li>
+                <li>Selecione a origem dos arquivos (CD, DVD, Pendrive…);</li>
+                <li>Marque os arquivos ficha.dat e analise.dat;</li>
+                <li>Abra a pasta Neuromap/Dados;</li>
+                <li>Arraste os arquivos para a pasta;</li>
+                <li>Remova o atributo "somente leitura" dos arquivos.</li>
+            </ol>
+            <p>Caso não consiga realizar a restauração de arquivos, solicite auxílio do seu Técnico em Informática.</p>
+        </div>
     </div>
 
     <div class="faq-item">
-        <div class="faq-question">Onde encontro os drivers para download? <span class="faq-icon">+</span></div>
-        <div class="faq-answer">Todos os drivers e manuais atualizados estão disponíveis na nossa aba dedicada de "Downloads" aqui no site oficial.</div>
+        <div class="faq-question">Como eu faço um backup de Arquivo em um Pendrive? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p><strong>Utilizando as versões do Neuromap com Windows XP ou superior:</strong></p>
+            <ol>
+                <li>Entre no programa Neuromap;</li>
+                <li>Na tela principal, selecione no menu Arquivo -> Transferir -> Exames;</li>
+                <li>No quadro que aparece, marque os exames que serão copiados;</li>
+                <li>Em seguida, no destino da cópia, digite o caminho de destino ou pressione Procurar -> Meu Computador, escolha a opção do Pendrive;</li>
+                <li>Pressione o botão Transferir.</li>
+            </ol>
+            <p><strong>Utilizando as versões do Neuromap com Windows 98:</strong></p>
+            <ol>
+                <li>Entre no Windows Explorer;</li>
+                <li>Abra a pasta Neurowin/Exames;</li>
+                <li>Marque os exames que serão copiados;</li>
+                <li>Arraste os arquivos para o Pendrive;</li>
+                <li>Abra a pasta Neurowin/Dados;</li>
+                <li>Marque os arquivos ficha.dat e analise.dat;</li>
+                <li>Arraste os arquivos para o Pendrive.</li>
+            </ol>
+            <p>Caso não consiga realizar o backup, solicite auxílio do seu Técnico em Informática.</p>
+        </div>
     </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Em quais tipos de mídia posso fazer Backup de exames? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>O programa Neuromap pode fazer backup direto em mídias do tipo R/W (CD R/W, DVD R/W, Pendrive, etc). O Neuromap não faz backup direto em mídias do tipo R (somente leitura); neste caso, utilize os programas de gravação que acompanham o gravador.</p>
+        </div>
+    </div>
+
+
+    <h2 class="faq-topic-title">2. Configuração de Rede</h2>
+    <p class="faq-topic-desc">O Neuromap pode ser utilizado em rede com um computador gravando exames e outro fazendo laudos. Para funcionar corretamente é necessário que a rede esteja operando adequadamente. Para lhe auxiliar com a instalação e configuração da rede, entre em contato com o seu Técnico de Informática.</p>
+
+    <div class="faq-item">
+        <div class="faq-question">Consigo abrir exames para fazer análise em uma rede? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Verifique no ambiente de rede do computador se é possível o acesso às unidades de rede e se o computador em que estão os exames está disponível. Se a rede não estiver com funcionamento normal ou não for possível acessar o computador de exames, solicite auxílio do técnico em informática responsável pela rede.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Como eu faço para configurar o Neuromap para fazer análise em uma rede? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Siga os passos abaixo:</p>
+            <ol>
+                <li>Instale o programa Neuromap no computador de gravação de exames;</li>
+                <li>Para definir e configurar da melhor forma possível o compartilhamento e consequentemente o caminho para acessá-lo, chame um técnico de sua confiança. No computador de análise, peça para o técnico fazer o mapeamento do compartilhamento do computador de exames;</li>
+                <li>No computador de análise, instale o programa Neuromap;</li>
+                <li>No computador de análise, entre no programa Neuromap. Selecione no menu a opção: Configurações -> Programa -> Pastas, ou Configurações -> Arquivos/Pastas. Troque a letra da unidade C: pela unidade mapeada nas opções referentes a 'Exames', 'Dados', 'Telas' e 'Laudos'.</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <h2 class="faq-topic-title">3. Eletrodos</h2>
+    <p class="faq-topic-desc">Eletrodos são considerados materiais de consumo. A duração destes materiais depende da frequência de uso e cuidados com a sua conservação. Após apresentarem problemas, devem ser prontamente substituídos e descartados. Mantenha sempre uma reserva para substituição oportuna.</p>
+
+    <div class="faq-item">
+        <div class="faq-question">Como faço para conservar os eletrodos? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Após o uso, lave os eletrodos em água corrente para retirar a pasta impregnada, esfregando-os com uma escova macia. Seque-os e os mantenha apoiados na maca ou cadeira utilizada para fazer o exame. Nunca deixe os eletrodos de molho na água de um dia para o outro. Isto diminui consideravelmente a vida útil do componente.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Onde devo montar o eletrodo de referência? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Recomenda-se a posição Fpz para o eletrodo de referência único (na região frontal, entre os eletrodos Fp1 e Fp2). Outras posições de referência podem ser utilizadas a critério do médico, como na região mandibular (um de cada lado) – como o registro é sempre feito com a referência, se uma falhar a outra "segura" o registro.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Como faço para verificar se o eletrodo está bom? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>No programa Neuromap faça o teste de impedância após a colocação dos eletrodos na cabeça do paciente. Se os valores de impedância de um eletrodo ficarem sempre altos (após a remontagem), é necessário fazer a substituição desse eletrodo.</p>
+            <p>Utilize o teste de continuidade de eletrodos do programa Neuromap. Para fazer este teste, veja a orientação no manual do usuário.</p>
+            <p>Os eletrodos não podem apresentar fios duros próximo aos conectores e conchas. Também não podem apresentar a capa do fio rasgada ou mordida com uma parte do condutor exposta.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Qual é o tipo de eletrodo que posso utilizar com o Neuromap? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Com o equipamento Neuromap podem ser utilizados os eletrodos do tipo de estanho, ouro, prata e cloridrato de prata (prata clorada). Mas atenção: não misture eletrodos de tipos diferentes, pois o conjunto de materiais distintos gera artefatos na captação do exame.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Quando deve ser feita a troca do eletrodo? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>O eletrodo deve ser trocado individualmente sempre que apresentar problemas de mau contato ou falta de contato. Em no máximo seis meses, faça uma troca completa de todo o conjunto de eletrodos.</p>
+        </div>
+    </div>
+
+
+    <h2 class="faq-topic-title">4. Equipamento não inicia a captação</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">O sistema não inicia a captação de sinal e aparece a mensagem "Erro de inicialização do Sistema USB"? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Faça as seguintes verificações:</p>
+            <ol>
+                <li>Verifique se o cabo USB está conectado corretamente ao computador e ao equipamento;</li>
+                <li>Troque a entrada (Porta) do cabo USB no computador;</li>
+                <li>Substitua o cabo USB por outro para testes;</li>
+                <li>Verifique se o programa foi instalado corretamente no computador. O sistema possui um 'Driver USB' que efetua a comunicação entre o equipamento Neuromap e o PC. Se o Driver não estiver ativo, o equipamento não inicia a captação;</li>
+                <li>Tente instalar o equipamento em outro computador;</li>
+                <li>Se o problema persistir, entre em contato com o suporte técnico da Neurotec.</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <h2 class="faq-topic-title">5. Interferências na captação do sinal</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">Por que o equipamento começou a captar o exame com muita interferência de 60Hz no mesmo local onde sempre fez exames? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <ul>
+                <li>Solicite ao eletricista responsável uma verificação das condições da tomada, da fiação e do aterramento do sistema (certifique-se de que a impedância está abaixo de 5 Ohms);</li>
+                <li>Verifique se não há alguma reforma recente no local que possa interferir na rede elétrica e no aterramento;</li>
+                <li>Verifique se algum cabo do computador, estabilizador, filtro de linha ou outro equipamento elétrico não rompeu o fio de aterramento;</li>
+                <li>Troque o eletrodo de aterramento do paciente (por exemplo, FPZ).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Após a mudança de local do equipamento, o exame é captado sempre com muita interferência? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <ul>
+                <li>Solicite ao eletricista responsável uma verificação das condições da tomada, da fiação e do aterramento do sistema (verifique se ele existe no novo local e se a impedância está abaixo de 5 Ohms);</li>
+                <li>Verifique se existem outros aparelhos próximos como ressonância magnética, aparelhos de Raios-X, consultórios dentários, motores, elevadores, etc. Caso existam, este ambiente pode ser inadequado para exames de neurofisiologia clínica.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Como faço para verificar se o equipamento está captando sinal corretamente? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>O Neuromap possui vários recursos para verificação do seu funcionamento correto, que são: o Teste de Calibração Individual, o Teste de Calibração Conjunta, o Teste de Continuidade dos Eletrodos e o Teste de Impedâncias. Execute estes testes conforme orientado no manual do usuário para confirmar o funcionamento ideal.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Alguns canais do exame gravado ficam isoelétricos em montagens bipolares? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Verifique se há formação de ponte salina entre os eletrodos (ligação de pasta entre eletrodos muito próximos). Há maior probabilidade de que isto aconteça se não for seguido rigorosamente um padrão de montagem, como o Sistema Internacional 10-20.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Estou captando sinal com interferência ou isoelétrico em todos os canais? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <ul>
+                <li>Caso a interferência esteja ocorrendo em <strong>TODOS</strong> os canais, corrija primeiro os eletrodos de referência, substituindo-os se necessário;</li>
+                <li>Verifique se o paciente está encostando alguma parte do corpo na parede, no chão ou em algum objeto metálico (maca). Em caso afirmativo, peça para desencostar;</li>
+                <li>Verifique se a temperatura da sala de exames está alta. O calor excessivo afeta diretamente a captação. Se o paciente estiver com sudorese, poderão ocorrer artefatos de onda lenta de grande amplitude;</li>
+                <li>Verifique se os eletrodos são todos do mesmo tipo. Não utilize, ao mesmo tempo, eletrodos de materiais diferentes ou de fabricantes diversos;</li>
+                <li>Verifique a impedância de contato dos eletrodos. Caso haja canais com impedância alta, limpe melhor a superfície da pele em contato com a pasta condutora;</li>
+                <li>Substitua os eletrodos dos canais em que a impedância não diminui após a leve abrasão da pele;</li>
+                <li>Evite usar carpetes e tapetes na sala de exames, pois eles acumulam carga estática, gerando ruído;</li>
+                <li>A qualidade da pasta condutora é fundamental. Mesmo usando a mesma marca, pode haver variação de lote. Considere realizar um teste com pasta de outro lote.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <h2 class="faq-topic-title">6. Laudo Remoto</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">Como eu faço para laudar exames remotamente, via Internet? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Existem diversas maneiras de fazer um laudo remotamente. A mais comum é criar uma rede externa segura com acesso pela Internet. Para estruturar essa conexão, solicite o auxílio do seu Técnico de Informática. Após criar a rede externa, configure o sistema como uma rede comum local.</p>
+            <p>Outro modo é realizando a transferência manual dos arquivos de exame via internet para o computador de destino onde o laudo será elaborado.</p>
+        </div>
+    </div>
+
+
+    <h2 class="faq-topic-title">7. Laudos no Word</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">Como faço para personalizar um Laudo no Word? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Se desejar fazer modificações para personalizar algum modelo de laudo padrão, siga estes passos:</p>
+            <ol>
+                <li>Abra a pasta <code>Neuromap/modelos/EEG</code> ou <code>EEGQ</code> dentro do drive local (C:);</li>
+                <li>Clique sobre o ícone do modelo desejado com o botão direito do mouse e selecione a opção <strong>Abrir</strong> (não dê duplo clique direto para não criar um documento novo baseado nele);</li>
+                <li>Faça as modificações desejadas (atenção: <strong>não altere</strong> a grafia das palavras que estão entre o sinal <code>#</code>);</li>
+                <li>Selecione no menu do Word a opção Salvar;</li>
+                <li>Feche o arquivo.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">É possível fazer o laudo de um exame gravado em CD? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Se desejar laudar exames que estão armazenados em um CD, DVD ou Pendrive, copie antes todos os arquivos correspondentes (com o nome do paciente) para a pasta local 'Exames'. Verifique se eles foram copiados com o atributo de 'Somente Leitura' ativo; se sim, desmarque essa opção nas propriedades do arquivo.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Por que não consigo fazer o laudo em outro computador ligado em rede? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Se estiver laudando exames através de uma rede local, certifique-se de que o computador servidor onde os arquivos estão gravados está ligado e disponível para acesso. Caso note falhas de compartilhamento, acione o técnico responsável pela rede.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Por que o laudo não fica preenchido corretamente? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Se alguma informação automatizada (macro) não estiver preenchendo, abra o arquivo original do modelo dentro do diretório <code>C:\Neuromap\modelos\EEG</code> (clicando com o botão direito e selecionando Abrir). Verifique se as tags foram alteradas acidentalmente com espaços, acentos ou cedilhas onde não deveria. Corrija a grafia, salve e feche.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Por que o laudo no Word não inicia? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>A integração e montagem do documento ocorrem por meio de uma Macro do Word que pode estar bloqueada pelas diretivas de segurança do Office. Para habilitar:</p>
+            <ul>
+                <li><strong>Versões do Word anteriores ao Word 2007:</strong> Acesse o menu Ferramentas -> Macros -> Segurança, e defina o nível como 'Baixo'.</li>
+                <li><strong>Versão do Word 2007 ou superior:</strong> Pressione o Botão Office / Arquivo -> Opções do Word -> Central de Confiabilidade -> Configuração da Central de Confiabilidade -> Configurações de Macro -> Habilitar todas as macros.</li>
+            </ul>
+            <p>Atenção: Softwares maliciosos (vírus) também podem corromper as funções do Word. Mantenha um antivírus ativo e atualizado. Se o Word apresentar comportamento instável geral, solicite a reinstalação do pacote Office ao seu técnico.</p>
+        </div>
+    </div>
+
+
+    <h2 class="faq-topic-title">8. Sistemas com Windows 98</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">Como eu faço para configurar o Neuromap para fazer análise em uma rede se o computador de exames está com Windows 98? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <ol>
+                <li>Configure o compartilhamento físico da pasta no Windows 98 com o suporte de um técnico. No computador moderno de análise, realize o mapeamento dessa unidade de rede;</li>
+                <li>Instale o programa Neuromap no computador de análise;</li>
+                <li>Pressione o botão Iniciar do Windows e selecione a opção <strong>Executar</strong>;</li>
+                <li>Na caixa de diálogo aberta digite <code>Neuromap.ini</code> e pressione OK;</li>
+                <li>No arquivo de texto aberto via Bloco de Notas, localize e modifique as linhas referentes a <code>DAT</code>, <code>EXM</code>, <code>DADOS</code> e <code>EXAMES</code> nas seções <code>[PATHS]</code> e <code>[DIRETÓRIOS]</code>. Substitua a letra padrão 'C' pela respectiva letra da unidade de rede mapeada;</li>
+                <li>Feche o Bloco de Notas salvando as alterações.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Meu computador funciona com Windows 98 e não consigo instalar uma impressora nova para imprimir exames? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Impressoras modernas geralmente não possuem drivers compatíveis com o Windows 98. A solução é conectar esse computador em rede local. Em outra máquina mais moderna da rede, instale o Neuromap, configure o acesso aos exames remotamente e realize as impressões por ela.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Fiz um upgrade no Windows 98 e o meu equipamento parou de registrar sinal? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>As versões de software antigas dedicadas ao Windows 98 não possuem compatibilidade de arquitetura para gravar sinais em sistemas operacionais como Windows XP, Vista, Windows 7 ou superiores. Entre em contato com o suporte da Neurotec para consultar os pacotes de atualização para o seu modelo.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">O sistema inicia a captação de sinal, mas o mesmo está sempre reto? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Se a linha iniciar completamente reta (isoelétrica), verifique se os LEDs indicadores do equipamento físico estão acesos. Se estiverem apagados, verifique as conexões de energia, a chave liga/desliga ou cabos soltos. Se continuarem apagados mesmo com alimentação correta, contate nosso suporte técnico.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">O sistema não inicia a captação de sinal e não corre sinal na tela? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Se a tela de captação ficar estática ou em branco, solicite ao técnico de informática que verifique a BIOS do computador na seção "PCI/PNP CONFIGURATION". Os pedidos de interrupção <strong>IRQ 3 e 5</strong> devem estar devidamente reservados para ISA, e a porta serial física COM2 deve ser desabilitada.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">O programa não abre a ficha de seleção de pacientes? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">
+            <p>Caso o sistema trave ao tentar acessar o cadastro de pacientes, localize o diretório raiz onde o sistema está instalado (por exemplo, <code>C:\Neurowin\Dados</code>), remova manualmente os arquivos indexadores corrompidos <code>Ficha.Dat</code> e <code>Analise.Dat</code>, e reinicie o sistema para que ele recrie tabelas limpas.</p>
+        </div>
+    </div>
+
 </div>
 
 <footer class="footer-premium">
@@ -182,7 +569,7 @@
             <div class="footer-col">
                 <h4>Institucional</h4>
                 <ul class="footer-links">
-                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                    <li><a href="sobre.html">Sobre Empresa</a></li>
                     <li><a href="certificacoes.html">Certificações</a></li>
                     <li><a href="contato.html">Localização</a></li>
                 </ul>
@@ -206,7 +593,27 @@
     document.querySelectorAll('.faq-question').forEach(item => {
         item.addEventListener('click', () => {
             const parent = item.parentElement;
+            const answer = item.nextElementSibling;
+            
+            // Fecha outros accordions ativos se quiser um comportamento único (opcional)
+            // Caso prefira múltiplos abertos ao mesmo tempo, comente as linhas abaixo:
+            document.querySelectorAll('.faq-item').forEach(child => {
+                if (child !== parent && child.classList.contains('active')) {
+                    child.classList.remove('active');
+                    child.querySelector('.faq-answer').style.maxHeight = '0px';
+                    child.querySelector('.faq-answer').style.paddingBottom = '0px';
+                }
+            });
+
             parent.classList.toggle('active');
+            
+            if (parent.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                answer.style.paddingBottom = "25px";
+            } else {
+                answer.style.maxHeight = "0px";
+                answer.style.paddingBottom = "0px";
+            }
         });
     });
 </script>

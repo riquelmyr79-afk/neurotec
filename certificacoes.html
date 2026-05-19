@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -101,6 +101,57 @@
         .card-cert h2 { color: var(--dark-blue); font-size: 24px; margin-bottom: 30px; }
         .img-cert { max-width: 100%; border-radius: 15px; transition: 0.3s; }
         .img-cert:hover { transform: scale(1.02); }
+        .pdf-image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .pdf-image-link {
+            display: block;
+            width: 260px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+        .pdf-image-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+        }
+        .pdf-image-link img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .pdf-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 18px;
+            border-radius: 18px;
+            background: #f4f8ff;
+            border: 1px solid #d7e6ff;
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.08);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .pdf-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
 
         /* RODAPÉ PREMIUM */
         .footer-premium {
@@ -142,7 +193,7 @@
             <li><a href="index.html">Início</a></li>
             <li><a href="produtos.html">Produtos</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="sobre.html">A Empresa</a></li>
+            <li><a href="sobre.html">Empresa</a></li>
             <li><a href="certificacoes.html">Certificações</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
@@ -168,11 +219,28 @@
             <div class="card-cert">
                 <img src="certificacoes4.png" alt="Selo Qualidade" class="img-cert" style="margin-bottom: 50px;">
                 <h2>Sistema de Gestão da Qualidade EN ISO 9001 / EN ISO 13485</h2>
-                <img src="cert2.png" alt="Certificado ISO" class="img-cert" style="max-width: 450px;">
+                <div class="pdf-image-grid">
+                    <a href="CERTIFICA.1.pdf" target="_blank" class="pdf-image-link">
+                        <img src="certifica.11.png" alt="CERTIFICA.1">
+                    </a>
+                    <a href="CERTIFICA2.pdf" target="_blank" class="pdf-image-link">
+                        <img src="certifica.12.png" alt="CERTIFICA2">
+                    </a>
+                </div>
             </div>
             <div class="card-cert">
                 <h2>Certificados de Conformidade dos Produtos</h2>
-                <img src="certprod3.png" alt="Conformidade" class="img-cert">
+                <div class="pdf-image-grid">
+                    <a href="CERTIFICAconformidade.pdf" target="_blank" class="pdf-image-link">
+                        <img src="certconf.png" alt="CERTIFICAconformidade">
+                    </a>
+                    <a href="Cert_Neuromap40i.pdf" target="_blank" class="pdf-image-link">
+                        <img src="certconf..png" alt="Cert_Neuromap40i">
+                    </a>
+                    <a href="CERTIFICAconformidade2.pdf" target="_blank" class="pdf-image-link">
+                        <img src="certconf3.png" alt="CERTIFICAconformidade2">
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -234,3 +302,4 @@
     </script>
 </body>
 </html>
+

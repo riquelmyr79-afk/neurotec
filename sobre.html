@@ -1,16 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre a Empresa - Neurotec</title>
+    <title>Empresa - Neurotec</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --primary: #0056b3;
-            --solid-blue: #0066cc; 
-            --hero-blue: #b5d1f0;  
+            --solid-blue: #0066cc;
+            --hero-blue: #b5d1f0;
             --dark-blue: #002244;
             --white: #ffffff;
             --footer-blue: #001a33;
@@ -18,27 +17,26 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; color: #333; background-color: var(--white); line-height: 1.7; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER */
-        .header-wrapper { 
-            position: fixed; 
-            top: 25px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: auto; 
-            z-index: 2000; 
+        .header-wrapper {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            z-index: 2000;
         }
-        .header-nav { 
-            background: rgba(255, 255, 255, 0.96); 
-            backdrop-filter: blur(12px); 
-            padding: 10px 35px; 
-            border-radius: 50px; 
-            display: flex; 
-            align-items: center; 
-            gap: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+        .header-nav {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            padding: 10px 35px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             border: 1px solid rgba(255,255,255,0.5);
             white-space: nowrap;
         }
@@ -48,10 +46,9 @@
         .nav-links a:hover { color: var(--primary); }
         .btn-loja-nav { background: var(--primary); color: white !important; padding: 8px 22px; border-radius: 20px; font-weight: 600 !important; }
 
-        /* HERO - AJUSTE DE COR NO TÍTULO */
         .hero-sobre {
             background-color: var(--hero-blue);
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
             background-size: var(--grid-size) var(--grid-size);
@@ -59,50 +56,84 @@
             border-radius: 0 0 80px 80px;
             text-align: center;
         }
-        .hero-sobre h1 { 
-            font-size: 52px; 
-            color: var(--dark-blue); /* Cor principal do título */
-            font-weight: 700; 
-            margin-bottom: 20px; 
+        .hero-sobre h1 {
+            font-size: 52px;
+            color: var(--dark-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
         }
-        .hero-sobre h1 span { 
-            color: var(--primary); /* Destaque em azul vibrante */
-        }
+        .hero-sobre h1 span { color: var(--primary); }
         .hero-sobre p { font-size: 18px; color: #5a6f85; max-width: 700px; margin: 0 auto 40px; }
 
         .botoes-sobre-destaque { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
-        .btn-elegante { 
-            display: flex; align-items: center; gap: 10px; background: white; color: var(--primary); 
-            border: 2px solid var(--primary); padding: 12px 25px; border-radius: 30px; 
-            font-weight: 600; text-decoration: none; transition: 0.3s; font-size: 14px;
+        .btn-elegante {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
         }
         .btn-elegante:hover { background: var(--primary); color: white; transform: translateY(-3px); }
 
-        /* SEÇÕES */
         .secao-layout { display: flex; align-items: center; gap: 60px; padding: 100px 0; }
         .secao-layout.reverse { flex-direction: row-reverse; }
         .texto-content { flex: 1; }
         .texto-content h2 { font-size: 36px; color: var(--dark-blue); margin-bottom: 25px; }
-        .texto-content p { font-size: 16px; color: #555; margin-bottom: 20px; text-align: justify; }
+        .texto-content p { font-size: 16px; color: #555; margin-bottom: 22px; text-align: justify; }
+        .texto-content p:last-child { margin-bottom: 0; }
         .foto-content { flex: 1; }
         .img-premium { width: 100%; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
 
         .fundador-wrapper { position: relative; }
-        .info-fundador { 
-            position: absolute; bottom: -20px; right: 20px; 
-            background: white; padding: 20px 30px; border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 5px solid var(--primary); 
+        .info-fundador {
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary);
+            max-width: 320px;
         }
+        .info-fundador h3 { margin-bottom: 8px; font-size: 18px; color: var(--dark-blue); }
+        .info-fundador p { margin: 0; color: #555; font-size: 14px; }
 
-        .grid-valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 80px 0; }
-        .valor-card { 
-            background: #fcfdfe; padding: 40px; border-radius: 30px; 
-            border: 1px solid #f0f4f8; transition: 0.3s; 
+        .curso-leads {
+            background: #fff;
+            border: 1px solid rgba(0,86,179,0.14);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 18px 40px rgba(0,86,179,0.08);
+            margin: 80px 0;
         }
-        .valor-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-color: var(--primary); }
-        .valor-card h3 { color: var(--dark-blue); margin-bottom: 15px; font-size: 22px; }
+        .curso-leads h2 { color: var(--dark-blue); font-size: 32px; margin-bottom: 25px; }
+        .curso-leads .cards-links { display: flex; flex-wrap: wrap; gap: 20px; }
+        .curso-leads a {
+            flex: 1 1 320px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: #fff;
+            padding: 18px 24px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            min-height: 64px;
+            transition: background 0.3s;
+            text-align: center;
+        }
+        .curso-leads a:hover { background: #004494; }
 
-        /* FOOTER */
         .footer-premium {
             background-color: var(--footer-blue);
             color: #ffffff;
@@ -121,7 +152,6 @@
         .footer-links a:hover { color: #fff; padding-left: 5px; }
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #8c9dad; }
         .coracao-footer { color: #e25555; animation: pulseFooter 1.5s infinite; display: inline-block; }
-        
         @keyframes pulseFooter { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
         @media (max-width: 900px) {
@@ -132,6 +162,7 @@
             .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
             .footer-col h4::after { left: 50%; transform: translateX(-50%); }
             .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .info-fundador { position: static; margin: 30px auto 0; max-width: 100%; }
         }
     </style>
 </head>
@@ -146,7 +177,7 @@
             <li><a href="index.html">Início</a></li>
             <li><a href="produtos.html">Produtos</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="sobre.html">A Empresa</a></li>
+            <li><a href="sobre.html">Empresa</a></li>
             <li><a href="certificacoes.html">Certificações</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
@@ -155,43 +186,54 @@
     </nav>
 </header>
 
-    <section class="hero-sobre">
-        <div class="container">
-            <h1>Nossa <span>Trajetória</span></h1>
-            <p>Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia brasileira.</p>
-            
-            <div class="botoes-sobre-destaque">
-                <a href="certificacoes.html" class="btn-elegante">🏆 Certificações e Prêmios</a>
-                <a href="faq.html" class="btn-elegante">❓ Perguntas Frequentes</a>
-            </div>
+<section class="hero-sobre">
+    <div class="container">
+        <h1>Nossa <span>Trajetória</span></h1>
+        <p>Mais de 30 anos desenvolvendo tecnologia de classe mundial para a neurofisiologia brasileira.</p>
+        <div class="botoes-sobre-destaque">
+            <a href="certificacoes.html" class="btn-elegante">🏆 Certificações e Prêmios</a>
+            <a href="faq.html" class="btn-elegante">❓ Perguntas Frequentes</a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <section class="secao-layout">
+        <div class="foto-content">
+            <img src="sede.png" alt="Sede Neurotec" class="img-premium">
+        </div>
+        <div class="texto-content">
+            <h2>A Neurotec®</h2>
+            <p>O compromisso da Neurotec® com a política de qualidade impulsiona a pesquisa e o desenvolvimento de novos produtos e tecnologias em conformidade com os padrões internacionais. Uma equipe de pesquisadores altamente qualificados, aliada aos recursos tecnológicos mais avançados, garante o excelente desempenho de nossos equipamentos, amplamente reconhecidos por seus usuários.</p>
+            <p>O NEUROMAP® foi criado combinando custo com a tecnologia mais avançada em eletroencefalografia digital, fornecendo o primeiro equipamento de mapeamento cerebral para o mercado brasileiro.</p>
+            <p>Atualmente, a Neurotec® atua em todos os segmentos da Neurofisiologia Clínica, produzindo equipamentos microprocessados e de design aberto com a mais recente tecnologia, além de fornecer uma gama completa de suprimentos e acessórios para o melhor desempenho clínico.</p>
         </div>
     </section>
 
-    <div class="container">
-        <section class="secao-layout">
-            <div class="foto-content">
-                <img src="sede.png" alt="Sede Neurotec" class="img-premium">
+    <section class="secao-layout reverse">
+        <div class="foto-content fundador-wrapper">
+            <img src="fundador.png" alt="Luiz Calistro Balestrassi" class="img-premium">
+            <div class="info-fundador">
+                <h3>Luiz Calistro Balestrassi</h3>
+                <p>Presidente</p>
             </div>
-            <div class="texto-content">
-                <h2>A Neurotec®</h2>
-                <p>Em conformidade às políticas de qualidade, a Neurotec® pesquisa e desenvolve produtos de nível internacional, buscando sempre o melhor resultado clínico.</p>
-            </div>
-        </section>
+        </div>
+        <div class="texto-content">
+            <h2>Nossa História</h2>
+            <p>A Neurotec foi criada em 1985 com o compromisso de desenvolver instalações de classe mundial acessíveis ao mercado brasileiro e que favoreçam a melhoria da qualidade de vida.</p>
+            <p>Nossa empresa se orgulha de alcançar seus objetivos, mantendo-se sempre fiel aos seus princípios. A busca pela excelência não se limita à pesquisa e à produção de equipamentos, estendendo-se também a uma política de respeito ao meio ambiente, de zero desperdício e de agregação de valor aos nossos colaboradores, à nossa cidade e ao nosso país. Sentimos grande satisfação ao ver nossos produtos contribuindo para o diagnóstico e a prevenção de doenças, tornando a Neurotec uma referência nacional na área de equipamentos de neurofisiologia clínica.</p>
+            <p>Em sintonia com a globalização e as novas técnicas de produção e comunicação, a Neurotec prepara seu espaço para o futuro, um futuro que se faz presente a cada dia, na mesma velocidade em que novas pesquisas se transformam em novos produtos. Agradecemos também aos médicos que, há anos, trabalham conosco, uma colaboração fundamental para todas as nossas conquistas.</p>
+        </div>
+    </section>
 
-        <section class="secao-layout reverse">
-            <div class="foto-content fundador-wrapper">
-                <img src="fundador.png" alt="Luiz Calistro Balestrassi" class="img-premium">
-                <div class="info-fundador">
-                    <h3>Luiz Calistro Balestrassi</h3>
-                    <p>Fundador / Presidente</p>
-                </div>
-            </div>
-            <div class="texto-content">
-                <h2>Nossa História</h2>
-                <p>Fundada em 1985, a Neurotec nasceu com o compromisso de produzir equipamentos de nível mundial acessíveis.</p>
-            </div>
-        </section>
-    </div>
+    <section class="curso-leads">
+        <h2>Cursos Relacionados</h2>
+        <div class="cards-links">
+            <a href="curso-2.html">II Curso técnico-prático de Eletroencefalograma</a>
+            <a href="curso-atualizacao.html">Curso de Atualização em EEG para Médicos(as) e Técnicos(as)</a>
+        </div>
+    </section>
+</div>
 
 <footer class="footer-premium">
     <div class="container">
@@ -204,7 +246,7 @@
                 <h4>Navegação</h4>
                 <ul class="footer-links">
                     <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="sobre.html">Empresa</a></li>
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>

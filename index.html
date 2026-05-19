@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -86,13 +86,29 @@
         .icon-box { width: 60px; height: 60px; border-radius: 15px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
 
         /* NOTÍCIAS */
-        .grade-noticias { display: grid; grid-template-columns: 1.5fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px; height: 380px; margin-top: 30px; }
-        .cartao-noticia { position: relative; border-radius: 18px; overflow: hidden; }
-        .cartao-noticia.principal { grid-row: span 2; }
-        .img-fundo { width: 100%; height: 100%; object-fit: cover; }
-        .sobreposicao { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); }
-        .conteudo-noticia { position: absolute; bottom: 20px; left: 20px; color: #fff; }
+            /* Grid: 12-column layout so we can place 3 large + 2 small proportionally */
+            .grade-noticias { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(220px, auto); grid-auto-flow: dense; gap: 14px; margin-top: 20px; align-items: stretch; }
+            .cartao-noticia { position: relative; border-radius: 18px; overflow: hidden; background: #f5f5f5; cursor: pointer; transition: transform .28s ease, box-shadow .28s ease; display: flex; align-items: center; justify-content: center; }
+            .cartao-noticia::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.08) 25%, rgba(0,0,0,0.55) 100%); pointer-events: none; }
+            .cartao-noticia:focus { outline: 3px solid rgba(0,86,179,0.18); }
+            .cartao-noticia .img-fundo { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+            .cartao-noticia:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(0,0,0,0.18); }
+            .cartao-noticia:hover .img-fundo { transform: scale(1.03); }
 
+            .cartao-large { grid-column: span 8; min-height: 300px; background: #f5f5f5; }
+            .cartao-large .img-fundo { height: 300px; padding: 20px; }
+            .cartao-large h3 { font-size: 19px; line-height: 1.2; }
+
+            .cartao-small { grid-column: span 4; min-height: 260px; background: #f5f5f5; }
+            .cartao-small .img-fundo { height: 260px; padding: 15px; }
+            .cartao-small h3 { font-size: 16px; }
+
+            .cartao-noticia .conteudo-noticia { position: absolute; left: 14px; right: 14px; bottom: 14px; color: #fff; display:flex; align-items:center; justify-content:space-between; gap:12px; background: rgba(0,0,0,0.42); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.16); padding:14px 16px; border-radius:14px; }
+            .cartao-noticia h3 { color: #fff; margin: 0; max-width: 66%; font-size: 18px; text-shadow: 0 2px 12px rgba(0,0,0,0.45); }
+            .btn-saiba { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; padding: 10px 16px; border-radius: 12px; text-decoration: none; font-weight:700; font-size:14px; box-shadow: 0 8px 20px rgba(0,86,179,0.16); min-width: 140px; }
+            .btn-saiba:hover { background: #004494; }
+
+            .cartao-congresso { grid-column: span 4; min-height: 260px; border-radius: 18px; }
         /* FOOTER */
         .footer-premium { background-color: var(--deep-blue); color: #ffffff; padding: 70px 0 30px; border-radius: 60px 60px 0 0; margin-top: 80px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
@@ -101,12 +117,21 @@
         .footer-links li { margin-bottom: 12px; }
         .footer-links a { color: #c9d5e1; text-decoration: none; font-size: 14px; transition: 0.2s; }
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 25px; display: flex; justify-content: space-between; font-size: 12px; color: #8c9dad; }
-
-        @media (max-width: 1000px) {
-            .hero-flex { flex-direction: column; text-align: center; }
-            .carousel-nav { width: 100%; top: 40%; }
-            .features-grid, .grade-noticias { grid-template-columns: 1fr; height: auto; }
+        @media (max-width: 1100px) {
+            .grade-noticias { grid-template-columns: repeat(2, 1fr); }
+            /* let cards flow naturally in two columns */
+            .cartao-large, .cartao-small, .cartao-congresso { grid-column: auto; }
+            .cartao-large .img-fundo, .cartao-small .img-fundo { height: 240px; }
+            .cartao-congresso { min-height: 280px; }
         }
+        @media (max-width: 600px) {
+            .grade-noticias { grid-template-columns: 1fr; }
+            .cartao-large .img-fundo, .cartao-small .img-fundo { height: 260px; }
+            .cartao-noticia .conteudo-noticia { bottom: 18px; left: 18px; right: 18px; }
+            .cartao-congresso { min-height: 300px; }
+        }
+
+        
     </style>
 </head>
 <body>
@@ -120,7 +145,7 @@
             <li><a href="index.html">Início</a></li>
             <li><a href="produtos.html">Produtos</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="sobre.html">A Empresa</a></li>
+            <li><a href="sobre.html">Empresa</a></li>
             <li><a href="certificacoes.html">Certificações</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
@@ -133,8 +158,8 @@
         <div class="container hero-flex">
             <div class="hero-text">
                 <span style="color: var(--solid-blue); font-weight: 600; font-size: 14px; margin-bottom: 10px; display: block;">+30 anos de excelência em neurofisiologia</span>
-                <h1>Tecnologia de<br><span class="color">Neurofisiologia</span><br><span class="color">Clínica</span></h1>
-                <p>Equipamentos com certificação internacional. Diagnósticos mais rápidos e confiáveis.</p>
+                <h1>Tecnologia em<br><span class="color">Neurofisiologia</span><br><span class="color">Clínica</span></h1>
+                <p>Equipamentos com certificação internacional. Diagnósticos rápidos e confiáveis.</p>
             </div>
             
             <div class="hero-img-container">
@@ -195,7 +220,7 @@
                 <div class="feature-card">
                     <div class="icon-box" style="background: #9C27B0;">🏢</div>
                     <h3>Versatilidade</h3>
-                    <p>Soluções adaptáveis para qualquer demanda clínica.</p>
+                    <p>Soluções adaptáveis para demandas clínica.</p>
                 </div>
             </div>
         </div>
@@ -207,28 +232,40 @@
             <h2 style="font-size: 28px; color: var(--dark-blue); margin-top: 5px;">Fique por Dentro</h2>
         </div>
         <div class="grade-noticias">
-            <div class="cartao-noticia principal">
-                <img src="foto 5.png" class="img-fundo">
-                <div class="sobreposicao"></div>
+            <!-- Four course cards as clickable divs (data-href) -->
+            <div class="cartao-noticia cartao-large" data-href="curso-3.html" tabindex="0">
+                <img src="foto 7.png" class="img-fundo" alt="III Curso EEG">
                 <div class="conteudo-noticia">
-                    <h3 style="font-size: 18px; margin-bottom: 10px;">III Curso técnico-prático de Eletroencefalograma</h3>
-                    <a href="curso-3.html" style="color:#fff; font-size: 13px; text-decoration:none;">Saiba mais ➔</a>
+                    <h3>III Curso técnico-prático de Eletroencefalograma</h3>
+                    <a class="btn-saiba" href="curso-3.html">Saiba mais ➔</a>
                 </div>
             </div>
-            <div class="cartao-noticia">
-                <img src="foto 6.png" class="img-fundo">
-                <div class="sobreposicao"></div>
+
+            <div class="cartao-noticia cartao-small" data-href="curso-2.html" tabindex="0">
+                <img src="foto 5.png" class="img-fundo" alt="II Curso EEG">
                 <div class="conteudo-noticia">
-                    <h3>II Curso técnico de EEG</h3>
+                    <h3>II Curso técnico-prático de Eletroencefalograma</h3>
+                    <a class="btn-saiba" href="curso-2.html">Saiba mais ➔</a>
                 </div>
             </div>
-            <div class="cartao-noticia">
-                <img src="foto 7.png" class="img-fundo">
-                <div class="sobreposicao"></div>
+
+            <div class="cartao-noticia cartao-large" data-href="curso-atualizacao.html" tabindex="0">
+                <img src="fotocurso.webp" class="img-fundo" alt="Curso de Atualização EEG">
                 <div class="conteudo-noticia">
-                    <h3>XXIX Congresso Brasileiro</h3>
+                    <h3>Curso de Atualização em EEG para Médicos(as) e Técnicos(as)</h3>
+                    <a class="btn-saiba" href="curso-atualizacao.html">Saiba mais ➔</a>
                 </div>
             </div>
+
+            <div class="cartao-noticia cartao-small" data-href="congresso-xxix.html" tabindex="0">
+                <img src="foto 6.png" class="img-fundo" alt="XXIX Congresso">
+                <div class="conteudo-noticia">
+                    <h3>XXIX Congresso Brasileiro de Neurofisiologia Clínica</h3>
+                    <a class="btn-saiba" href="congresso-xxix.html">Saiba mais ➔</a>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
@@ -288,7 +325,32 @@
         }
 
         setInterval(nextSlide, 6000);
+
+        // Tornar todo o cartão clicável (usa data-href) e permitir Enter no foco
+        function initClickableCards() {
+            document.querySelectorAll('.cartao-noticia[data-href]').forEach(card => {
+                // navegação por clique
+                card.addEventListener('click', function(e) {
+                    // se clicar em um link interno, deixa o link proceder normalmente
+                    if (e.target.closest('a')) return;
+                    const href = card.getAttribute('data-href');
+                    if (href) window.location.href = href;
+                });
+
+                // teclado (Enter)
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const href = card.getAttribute('data-href');
+                        if (href) window.location.href = href;
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initClickableCards);
     </script>
 
 </body>
 </html>
+
